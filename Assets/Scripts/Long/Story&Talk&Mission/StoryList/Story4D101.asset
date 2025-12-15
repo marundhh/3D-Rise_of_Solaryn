@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
+  m_Name: Story4D101
+  m_EditorClassIdentifier: 
+  blockID: Story4D101
+  actions:
+  - action: 8
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 1
+    Notification: Final Quest from Rise Guild
+  - action: 3
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: a718d3e24bf0f2644944465ec1f2e6d4, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 2
+    Notification: All enemies are defeat
+  - action: 2
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -397, y: -3.5, z: -49}
+    missionRaw: {fileID: 11400000, guid: a718d3e24bf0f2644944465ec1f2e6d4, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 2
+    Notification: All enemies are defeat
+  - action: 6
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -397, y: -3.5, z: -49}
+    missionRaw: {fileID: 11400000, guid: a718d3e24bf0f2644944465ec1f2e6d4, type: 2}
+    relationShipEff: 0
+    dialogID: Gloomwood01
+    storyID: 
+    waitTime: 2
+    Notification: All enemies are defeat

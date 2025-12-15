@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
+  m_Name: Story2D201
+  m_EditorClassIdentifier: 
+  blockID: Story2D201
+  actions:
+  - action: 3
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: c770994877a54f746b54e57f3daa607c, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+  - action: 0
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: PotionShop
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+  - action: 2
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -40, y: -3.4, z: 34}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+  - action: 2
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: PotionShopkeeper
+    position: {x: -42, y: -3.4, z: 35}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0

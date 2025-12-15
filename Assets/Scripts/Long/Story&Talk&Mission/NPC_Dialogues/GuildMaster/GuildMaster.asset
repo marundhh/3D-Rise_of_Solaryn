@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131e69c4744afea43acc903e3b4feb97, type: 3}
+  m_Name: GuildMaster
+  m_EditorClassIdentifier: 
+  npcName: GuildMaster
+  allDialogues:
+  - {fileID: 11400000, guid: a20fd10935c6fec4fbc942c48fc45742, type: 2}
+  - {fileID: 11400000, guid: 867e4c673e37e784899c40862572fe43, type: 2}
+  - {fileID: 11400000, guid: b2f03dacaf7048f4fb49c8730a330be8, type: 2}
+  - {fileID: 11400000, guid: 6a43d3661a1895846b5490070a583264, type: 2}
+  - {fileID: 11400000, guid: 6477efe4ec22fcd48af7eb4cbcabe03e, type: 2}
+  - {fileID: 11400000, guid: b68c861590aec9645838e464de7965cc, type: 2}
+  - {fileID: 11400000, guid: 3e8f83987e9c1874aaf38ee4b57dadb7, type: 2}
+  - {fileID: 11400000, guid: a7d32f90db938024384e55df038a3a21, type: 2}
+  - {fileID: 11400000, guid: 14c68b01c193d2d40a70fdfd6dddd7a0, type: 2}

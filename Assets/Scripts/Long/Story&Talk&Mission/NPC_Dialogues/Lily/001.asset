@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: 001
+  m_EditorClassIdentifier: 
+  dialogueID: 001
+  lines:
+  - I heard you went to the rise guild?
+  - Riser, good luck conquering the tower.
+  lines2:
+  - "\rYou haven't reached the rise guild yet?"
+  choices:
+  - text: Thanks
+    nextDialogueId: 002
+    storyBlockID: 
+    playNextDialogueAutomatically: 0
+    choiceLines: []
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2:
+  - text: I am go now
+    nextDialogueId: 001
+    storyBlockID: 
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - Hurry up!
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  condition:
+    requiredQuestID: 2
+    requireQuestCompleted: 1
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

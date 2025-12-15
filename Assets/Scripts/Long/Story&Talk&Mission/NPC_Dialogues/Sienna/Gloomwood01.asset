@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: Gloomwood01
+  m_EditorClassIdentifier: 
+  dialogueID: Gloomwood01
+  lines:
+  - Hi, you're here? This is gloomwood border.
+  - If we go straight in we will reach the boss of the first floor.
+  - Okay, are you ready?
+  lines2: []
+  choices:
+  - text: Ready
+    nextDialogueId: Gloomwood02
+    storyBlockID: Story4D102
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - Ok let's go
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

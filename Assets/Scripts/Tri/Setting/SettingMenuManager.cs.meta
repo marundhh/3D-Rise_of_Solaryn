@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d766b790b05247846a05015d4de2209d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - graphicsDropdown: {instanceID: 0}
+  - masterVol: {instanceID: 0}
+  - musicVol: {instanceID: 0}
+  - SFXVol: {instanceID: 0}
+  - MainAudio: {fileID: 24100000, guid: 2bb13aa178bf7334f9d5a3203779be4d, type: 2}
+  - vibrateToggle: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

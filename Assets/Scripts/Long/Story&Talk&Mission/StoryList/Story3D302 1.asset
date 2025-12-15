@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
+  m_Name: Story3D302 1
+  m_EditorClassIdentifier: 
+  blockID: a
+  actions:
+  - action: 4
+    prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}
+    count: 5
+    targetID: Sienna
+    position: {x: -583, y: 5, z: 2414}
+    missionRaw: {fileID: 11400000, guid: d013bb76e52e3914a92daec6c8f4e171, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+  - action: 3
+    prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}
+    count: 5
+    targetID: Sienna
+    position: {x: -500, y: 5, z: 2526}
+    missionRaw: {fileID: 11400000, guid: 549a8a7fcae724a4a88442fbbe2d7319, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+  - action: 3
+    prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}
+    count: 5
+    targetID: Sienna
+    position: {x: -500, y: 5, z: 2526}
+    missionRaw: {fileID: 11400000, guid: db9f56db01ab84645ba566ef7d12e96c, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+  - action: 3
+    prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}
+    count: 5
+    targetID: Sienna
+    position: {x: -500, y: 5, z: 2526}
+    missionRaw: {fileID: 11400000, guid: eedbbc294cdf15549a826e4c84afdc35, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 

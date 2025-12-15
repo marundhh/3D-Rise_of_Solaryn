@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: RunAround2
+  m_EditorClassIdentifier: 
+  dialogueID: RunAround2
+  lines:
+  - Great, we complete run test
+  - So, are you ready for next skill?
+  lines2: []
+  choices:
+  - text: Let's go
+    nextDialogueId: CombatSkill
+    storyBlockID: Story1D1051
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - Good, next is combat skill
+    - You have to defeat 5 enemy
+    - Start....
+    missionRaw: {fileID: 0}
+    relationShipEff: 3
+    setFlag: 
+  - text: I need breath
+    nextDialogueId: RunAround2
+    storyBlockID: 
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - Ok, Talk to me when you ready.
+    missionRaw: {fileID: 0}
+    relationShipEff: -2
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: 5
+    requireQuestCompleted: 1
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

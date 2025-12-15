@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  dialogueID: start
+  lines:
+  - <b><size=115%>Greetings</size></b>. I have been expecting you.
+  - It is a pleasure to meet you, Riser.
+  - I have received word from the <b>Holy Dominion</b> that you would be coming to
+    challenge the Tower.
+  - Allow me to introduce myself. I am <b>Lily</b>, entrusted with welcoming and
+    guiding you through the formalities.
+  - Go to the <i>Rise Guild</i> at the center of town.
+  - Are you ready?
+  lines2: []
+  choices:
+  - text: I am ready
+    nextDialogueId: 001
+    storyBlockID: Story1D102
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - Good, now go to rise guild at center of town
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

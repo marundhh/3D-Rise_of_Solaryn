@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e70d3cc62300448b102fe1fb26643a, type: 3}
+  m_Name: ProtectShield
+  m_EditorClassIdentifier: 
+  skillName: Buff Giap
+  skillDescription: Buff Giap
+  cooldown: 2
+  duration: 5
+  manaCost: 20
+  skillSoundEff: {fileID: 8300000, guid: a5242a7f3d040544a8d1088b7097edb5, type: 3}
+  skillEffect: {fileID: 7411715371912112419, guid: 81b07291d39a6134b8e56887bef449bc, type: 3}
+  armorMultiply: 2
+  magicShieldObject: {fileID: 5313608770351127674, guid: 33a4906ab46d4f24183ab10524197b1c, type: 3}

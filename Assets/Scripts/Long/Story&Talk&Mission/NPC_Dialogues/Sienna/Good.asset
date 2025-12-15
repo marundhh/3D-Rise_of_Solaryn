@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: Good
+  m_EditorClassIdentifier: 
+  dialogueID: Good
+  lines:
+  - "Thank you so much\u2026 Without you, I don\u2019t know what I would've done."
+  - " I\u2019m Sienna, 20 years old. Currently working as a <b>Magico-Alchano-Arrayist</b>
+    here in town."
+  lines2: []
+  choices:
+  - text: "Uh\u2026 Sienna? Wait, what\u2019s a\u2026 Magico... Array... what?"
+    nextDialogueId: Good02
+    storyBlockID: 
+    playNextDialogueAutomatically: 1
+    choiceLines: []
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

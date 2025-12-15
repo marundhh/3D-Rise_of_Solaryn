@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: GoHome3
+  m_EditorClassIdentifier: 
+  dialogueID: GoHome3
+  lines:
+  - (Riser) Here, your potion
+  - " <i>\u201CThank you!!\u201D</i>"
+  lines2: []
+  choices:
+  - text: No problem
+    nextDialogueId: 
+    storyBlockID: GoHome5
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - "(Thinking)  She quickly pours it in, focuses \u2014 the clumsiness fades.
+      Her magic surges with discipline and clarity."
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

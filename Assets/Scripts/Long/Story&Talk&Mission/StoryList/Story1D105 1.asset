@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
+  m_Name: Story1D105 1
+  m_EditorClassIdentifier: 
+  blockID: Story1D1051
+  actions:
+  - action: 3
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: 1ed21816637a3214e9a9445c406fdf7d, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+  - action: 0
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: TrainningCombat
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: 1ed21816637a3214e9a9445c406fdf7d, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 

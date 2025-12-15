@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
+  m_Name: GoHomeEnd
+  m_EditorClassIdentifier: 
+  blockID: GoHomeEnd
+  actions:
+  - action: 9
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -343, y: -1.5, z: -124.5}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 2
+    Notification: After all she increased you that potion, she was very happy.
+  - action: 1
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: BrokenPorionRefin
+    position: {x: -343, y: -1.5, z: -124.5}
+    missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+  - action: 2
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: 1000, y: -2.14, z: 1000}
+    missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+  - action: 3
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -343, y: -1.5, z: -124.5}
+    missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+  - action: 7
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -343, y: -1.5, z: -124.5}
+    missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
+    relationShipEff: 0
+    dialogID: Branch3Good
+    storyID: Story3D1B1
+    waitTime: 0
+    Notification: 

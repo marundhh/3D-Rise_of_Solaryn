@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: 008
+  m_EditorClassIdentifier: 
+  dialogueID: 008
+  lines:
+  - There have been several Riser groups that have entered Gloomwood before.
+  - Then a portal took them to a higher floor.
+  - But they left and never came back.
+  - And after a while the boss will be revived.
+  - We noticed that the tower would weaken if the boss of that floor was destroyed.
+  - Therefore we believe that there is a greater force behind these floor bosses.
+  - And if we can defeat it, maybe we can end the tower.
+  lines2: []
+  choices:
+  - text: So you guys want me to beat the 1st floor boss and go to the 2nd floor
+    nextDialogueId: 009
+    storyBlockID: Story4D101
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - Yes, Riser, let's end this once and for all.
+    - Go north to enter Gloomwood
+    - Sienna will be waiting for you at the entrance from where you two will conquer
+      the 1st floor together.
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  - text: I will go to the 2nd floor
+    nextDialogueId: 009
+    storyBlockID: Story4D101
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - So you've got everything figured out and you're ready?
+    - Go north to enter Gloomwood
+    - Sienna will be waiting for you at the entrance from where you two will conquer
+      the 1st floor together.
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: Good03
+  m_EditorClassIdentifier: 
+  dialogueID: Good03
+  lines:
+  - "Hehe\u2026 I honestly don\u2019t know how to thank you.\r\n"
+  - " How about you come to my place? I\u2019ll find something useful to give you."
+  lines2: []
+  choices:
+  - text: Follow her home
+    nextDialogueId: GoHome
+    storyBlockID: GoHome
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - (Riser)  Alright. Lead the way.
+    - "Yay! It\u2019s just nearby. This way!"
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  - text: Decline politely
+    nextDialogueId: Branch3Good
+    storyBlockID: Story2D2BranchGoodB2
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - (Riser) No need. I helped because I wanted to.
+    - "Then\u2026 I\u2019ll remember that.\r\n"
+    - ' I hope we meet again.'
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: 3D3Branch03
+  m_EditorClassIdentifier: 
+  dialogueID: 3D3Branch03
+  lines:
+  - Haha! Great job, Riser!
+  - "The gate\u2019s sealed completely. If it weren\u2019t for you, I\u2019d be monster
+    chow"
+  - "Next mission \u2014 I want to be teamed up with you again!"
+  lines2:
+  - "Didn\u2019t think you\u2019d pull it off. But I\u2019ve got to admit... you
+    did well"
+  - Maybe I underestimated you a bit.
+  - "But don\u2019t think I\u2019ll go easy on you from now on!"
+  choices:
+  - text: "Always ready. Working with you\u2019s not bad at all."
+    nextDialogueId: 
+    storyBlockID: Story3D306
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - Ha! Flatterer
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2:
+  - text: "Thanks... I\u2019m surprised you didn\u2019t leave me behind either."
+    nextDialogueId: 
+    storyBlockID: Story3D306
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - huh...
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: 1
+    requiredWorldFlag: 

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "type": "ReachLocation",
+    "title": "Tới Cổng Thành",
+    "description": "Hãy đến khu vực có tên là WestGate.",
+    "targetLocation": "WestGate"
+  },
+  {
+    "id": 2,
+    "type": "KillEnemy",
+    "title": "Săn Slime",
+    "description": "Tiêu diệt 3 con Slime để bảo vệ làng.",
+    "enemyType": "Slime",
+    "count": 3
+  },
+  {
+    "id": 3,
+    "type": "TalkToNPC",
+    "title": "Gặp NPC_A",
+    "description": "Tìm và trò chuyện với nhân vật tên là NPC_A.",
+    "npcName": "NPC_A"
+  },
+  {
+    "id": 4,
+    "type": "CollectItem",
+    "title": "Thu Thập Cá",
+    "description": "Nhặt 5 con cá để hoàn thành đơn hàng.",
+    "itemName": "Fish",
+    "count": 5
+  }
+]

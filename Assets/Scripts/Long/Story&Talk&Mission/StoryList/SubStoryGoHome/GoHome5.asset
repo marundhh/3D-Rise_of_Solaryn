@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
+  m_Name: GoHome5
+  m_EditorClassIdentifier: 
+  blockID: GoHome5
+  actions:
+  - action: 9
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 2
+    Notification: "A glowing blue pulse \u2014 then a loud BOOM!"
+  - action: 9
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 1
+    Notification: You and try to quickly leave the fire
+  - action: 3
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: 64cace7b0ec1cf34395807708e86ca9d, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 1
+    Notification: You and try to quickly leave the fire
+  - action: 1
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: OriginPorionRefin
+    position: {x: -350, y: -2.56, z: -93}
+    missionRaw: {fileID: 11400000, guid: 64cace7b0ec1cf34395807708e86ca9d, type: 2}
+    relationShipEff: 0
+    dialogID: GoHome4
+    storyID: 
+    waitTime: 1
+    Notification: You and try to quickly leave the fire
+  - action: 0
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: BrokenPorionRefin
+    position: {x: -350, y: -2.56, z: -93}
+    missionRaw: {fileID: 11400000, guid: 64cace7b0ec1cf34395807708e86ca9d, type: 2}
+    relationShipEff: 0
+    dialogID: GoHome4
+    storyID: 
+    waitTime: 1
+    Notification: You and try to quickly leave the fire
+  - action: 2
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -350, y: -2.56, z: -93}
+    missionRaw: {fileID: 11400000, guid: 64cace7b0ec1cf34395807708e86ca9d, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 1
+    Notification: You and try to quickly leave the fire
+  - action: 6
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -350, y: -2.56, z: -93}
+    missionRaw: {fileID: 11400000, guid: 64cace7b0ec1cf34395807708e86ca9d, type: 2}
+    relationShipEff: 0
+    dialogID: GoHome4
+    storyID: 
+    waitTime: 1
+    Notification: You and try to quickly leave the fire

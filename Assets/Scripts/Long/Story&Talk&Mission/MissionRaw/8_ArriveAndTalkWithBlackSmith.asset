@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e239e2be81ea245aaf2823cef8cb74, type: 3}
+  m_Name: 8_ArriveAndTalkWithBlackSmith
+  m_EditorClassIdentifier: 
+  missionType: 2
+  id: 8
+  tile: Arrive and talking to black smith
+  description: So I got my Riser certificate. The Guild Master asked me to get acquainted
+    with the town while waiting for a new quest from the Guild. I'll probably stop
+    by the blacksmith first.
+  type: BlackSmith
+  count: 0
+  loacation: BlackSmith
+  rewardGold: 0
+  rewardExp: 100
+  storyID: 

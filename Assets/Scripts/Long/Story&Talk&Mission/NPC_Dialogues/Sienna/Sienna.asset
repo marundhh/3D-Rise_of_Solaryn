@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131e69c4744afea43acc903e3b4feb97, type: 3}
+  m_Name: Sienna
+  m_EditorClassIdentifier: 
+  npcName: Sienna
+  allDialogues:
+  - {fileID: 11400000, guid: 26220abb6ee0fe64c8ad9900c63592f2, type: 2}
+  - {fileID: 11400000, guid: 8c45698fef992614bb8981a5e056ee18, type: 2}
+  - {fileID: 11400000, guid: c3d2001e680e19d4b8a749e29b67059c, type: 2}
+  - {fileID: 11400000, guid: 05b3758ed47356f409caf0bd14810a0a, type: 2}
+  - {fileID: 11400000, guid: 743842c4014869b4b841ff9e0ccff672, type: 2}
+  - {fileID: 11400000, guid: 2044b16adf691cd4083056f3a59d84ca, type: 2}
+  - {fileID: 11400000, guid: fbbd6d4a59f73b045ab1e353e4bfa548, type: 2}
+  - {fileID: 11400000, guid: 0de027163ad75bf4ab153db1959750c1, type: 2}
+  - {fileID: 11400000, guid: 6924bb4806c15754d9cc99615145a480, type: 2}
+  - {fileID: 11400000, guid: 87c7b71dda8de5146b0081dcf435e93c, type: 2}
+  - {fileID: 11400000, guid: 235c149f5c51f4b4f92ab07b00456f14, type: 2}
+  - {fileID: 11400000, guid: 46375dbef5b5fbf408e1ba19546e53a3, type: 2}
+  - {fileID: 11400000, guid: cd5914ec3e485c045a708149fed17b31, type: 2}
+  - {fileID: 11400000, guid: 1d533378e6e10b94ab9a65f94a8f1063, type: 2}
+  - {fileID: 11400000, guid: 5137dd480c7ab22449106463a640de62, type: 2}
+  - {fileID: 11400000, guid: 78f9d793ab93b5b4085c6cc80a6bdbb5, type: 2}
+  - {fileID: 11400000, guid: 67571adba800cd742b58d3386782353d, type: 2}
+  - {fileID: 11400000, guid: f216d477026b8ef4283caf5813678cc4, type: 2}
+  - {fileID: 11400000, guid: 2c3bd40738516fe4a99282536ba68c7d, type: 2}

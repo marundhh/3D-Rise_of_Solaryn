@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: Gloomwood02
+  m_EditorClassIdentifier: 
+  dialogueID: Gloomwood02
+  lines:
+  - This is the entrance to the boss room.
+  - And it is sealed away by the gloomwood guardians.
+  - You need to defeat them first to open the locked gate.
+  - I will give you their location defeat them and come back here
+  lines2: []
+  choices:
+  - text: I understand
+    nextDialogueId: Gloomwood03
+    storyBlockID: Story4D201
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - I will wait for you here
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

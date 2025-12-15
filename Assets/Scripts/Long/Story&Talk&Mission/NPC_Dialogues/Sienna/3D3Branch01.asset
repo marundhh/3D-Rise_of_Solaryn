@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: 3D3Branch01
+  m_EditorClassIdentifier: 
+  dialogueID: 3D3Branch01
+  lines:
+  - "Oh, it\u2019s you! That\u2019s great \u2014 now I feel a bit safer."
+  - "Let\u2019s handle this together. I\u2019ll take care of the array \u2014 just
+    keep the monsters off me!"
+  - "Don\u2019t let anything interrupt me while I\u2019m casting!"
+  lines2:
+  - "Oh... it\u2019s you. What a surprise."
+  - "I thought the Guild would send someone... a little more reliable \u2014 but
+    fine. Just don\u2019t get in my way."
+  - "I\u2019ll focus on sealing the gate. You deal with the monsters, alright?"
+  choices:
+  - text: "Don\u2019t worry. I\u2019ve got your back."
+    nextDialogueId: 3D3Branch02
+    storyBlockID: Story3D302
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - Knew I could count on you
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2:
+  - text: "Fine. I\u2019ll try not to slow you down."
+    nextDialogueId: 3D3Branch02
+    storyBlockID: Story3D302
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - "Good. Let\u2019s just get this over with"
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: 1
+    requiredWorldFlag: 

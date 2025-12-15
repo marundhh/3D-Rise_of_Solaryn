@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131e69c4744afea43acc903e3b4feb97, type: 3}
+  m_Name: Trainer
+  m_EditorClassIdentifier: 
+  npcName: Trainer
+  allDialogues:
+  - {fileID: 11400000, guid: 796b170741548104c9c8352a445a3508, type: 2}
+  - {fileID: 11400000, guid: 0da4467a7c4637c4496243a8ad491f8d, type: 2}
+  - {fileID: 11400000, guid: 323a647d02cc9514c8d3d0bcbc3a54d3, type: 2}
+  - {fileID: 11400000, guid: 44229da0ed3fb264ba71c4712abcd253, type: 2}

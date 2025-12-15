@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: Good02
+  m_EditorClassIdentifier: 
+  dialogueID: Good02
+  lines:
+  - "Haha! Well, I\u2019m a mage, an alchemist, and I study magical arrays.\r\n So
+    I just combined the titles \u2014 Magico-Alchano-Arrayist!"
+  lines2: []
+  choices:
+  - text: "You might be the most impressive person I\u2019ve ever met"
+    nextDialogueId: Good03
+    storyBlockID: 
+    playNextDialogueAutomatically: 1
+    choiceLines: []
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

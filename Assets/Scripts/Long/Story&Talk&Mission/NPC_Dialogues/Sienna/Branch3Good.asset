@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: Branch3Good
+  m_EditorClassIdentifier: 
+  dialogueID: Branch3Good
+  lines:
+  - "It\u2019s really you! I was worried you\u2019d get hurt!"
+  lines2:
+  - Oh! We meet again! Are you alright?
+  choices:
+  - text: "Thanks to you, I\u2019m still standing."
+    nextDialogueId: Branch3GoodB1
+    storyBlockID: 
+    playNextDialogueAutomatically: 1
+    choiceLines: []
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2:
+  - text: "Thought I was a goner for sure\u2026"
+    nextDialogueId: Branch3GoodB2
+    storyBlockID: 
+    playNextDialogueAutomatically: 1
+    choiceLines: []
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: 2
+    requiredWorldFlag: 
