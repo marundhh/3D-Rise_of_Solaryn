@@ -22,7 +22,8 @@ MonoBehaviour:
     nextDialogueId: 
     storyBlockID: Story3D402
     playNextDialogueAutomatically: 0
-    choiceLines: []
+    choiceLines:
+    - Good night
     missionRaw: {fileID: 0}
     relationShipEff: 0
     setFlag: 

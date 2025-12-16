@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6311e89e06ea88642bb5f4165b334665, type: 3}
+  m_Name: Voidflare
+  m_EditorClassIdentifier: 
+  id: 5
+  damage: 10
+  isHand: 1
+  price: 1256
+  weaponName: Voidflare
+  weaponModel: {fileID: 4336322324277447613, guid: 839b92f33d9e9b9449fffc4b8e8b2aa6, type: 3}
+  controller: {fileID: 9100000, guid: 9d187b14afc299842bfedc6a50ae2031, type: 2}
+  icon: {fileID: 21300000, guid: e3014a10f2a1229459e4be04cb19f023, type: 3}

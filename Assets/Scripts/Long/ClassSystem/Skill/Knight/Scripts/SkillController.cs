@@ -12,12 +12,14 @@ using UnityEngine.UI;
 public class SkillController : MonoBehaviour
 {
     public GameObject playerRoot;
+    public ClassManager classManager;
     public Transform tranformSkillEffects;
 
     [Header("Skill Data")]
     public List<SkillBase> skillDataList; // list ScriptableObject
 
     [Header("UI for Skill")]
+    public List<Image> skillIcon = new List<Image>();
     public List<Image> skillIconCooldown = new List<Image>();
     public List<TextMeshProUGUI> skillTextCooldown = new List<TextMeshProUGUI>();
 
@@ -28,13 +30,16 @@ public class SkillController : MonoBehaviour
 
         foreach (var skillData in skillDataList)
         {
-            switch (GetComponent<ICharacterClass>().CharType)
+            switch (classManager.selectedClassData.className)
             {
                 case ClassType.Archer:
                     InitArcherSkill(skillData);
                     break;
                 case ClassType.Knight:
                     InitKnightSkill(skillData);
+                    break;
+                case ClassType.Mage:
+                    InitMageSkill(skillData);
                     break;
             }
          
@@ -48,9 +53,14 @@ public class SkillController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) runtimeSkills[0]?.UseSkill();
-        if (Input.GetKeyDown(KeyCode.E)) runtimeSkills[1]?.UseSkill();
-        if (Input.GetKeyDown(KeyCode.R)) runtimeSkills[2]?.UseSkill();
+        if(PlayerState.instance.GetCurrentState() == PlayerState.state.Idle || 
+            PlayerState.instance.GetCurrentState() == PlayerState.state.Run ||
+            PlayerState.instance.GetCurrentState() == PlayerState.state.Roll)
+        {
+            if (Input.GetKeyDown(KeyCode.Q)) runtimeSkills[0]?.UseSkill();
+            if (Input.GetKeyDown(KeyCode.E)) runtimeSkills[1]?.UseSkill();
+            if (Input.GetKeyDown(KeyCode.R)) runtimeSkills[2]?.UseSkill();
+        }
  
         transform.position = playerRoot.transform.position;
     }
@@ -85,6 +95,23 @@ public class SkillController : MonoBehaviour
         else if (skillData is SkillArrowRain arrowRain)
         {
             runtimeSkills.Add(new RuntimeArrowRain(arrowRain, playerRoot.gameObject, this));
+        }
+    }
+
+    public void InitMageSkill(SkillBase skillData)
+    {
+        if (skillData is SkillSummonMinions summonMinions)
+        {
+            var runtime = new RuntimeSummonMinions(summonMinions, playerRoot.gameObject, this);
+            runtimeSkills.Add(runtime);
+        }
+        else if (skillData is SkillHealMinions healMinions)
+        {
+            runtimeSkills.Add(new RuntimeHealMinions(healMinions, playerRoot.gameObject, this));
+        }
+        else if (skillData is SkillSoulEcho soulEcho)
+        {
+            runtimeSkills.Add(new RuntimeSoulEcho(soulEcho, playerRoot.gameObject, this));
         }
     }
 }

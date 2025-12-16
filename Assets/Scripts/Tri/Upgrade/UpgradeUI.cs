@@ -9,8 +9,13 @@ public class UpgradeUI : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
-        panel.SetActive(false); // Ẩn bảng khi bắt đầu
+        panel.SetActive(false);
     }
 
     void Update()
@@ -25,7 +30,7 @@ public class UpgradeUI : MonoBehaviour
     }
 
 
-    public void Show()
+    public void Show(System.Action onClosed = null)
     {
         panel.SetActive(true);
         Time.timeScale = 0f;
@@ -34,7 +39,12 @@ public class UpgradeUI : MonoBehaviour
 
         for (int i = 0; i < cardUIs.Count; i++)
         {
-            cardUIs[i].Init(options[i], ApplyUpgrade);
+            cardUIs[i].Init(options[i], (chosen) =>
+            {
+                ApplyUpgrade(chosen);
+                Hide();
+                onClosed?.Invoke();
+            });
         }
     }
 
@@ -48,7 +58,9 @@ public class UpgradeUI : MonoBehaviour
     public void ApplyUpgrade(UpgradeOption chosen)
     {
         Debug.Log("Đã chọn nâng cấp: " + chosen.name);
-        // Tăng chỉ số nhân vật ở đây...
+        
+        // Tăng chỉ số nhân vật ở đây
+        UpgradeManager.Instance.ApplyUpgrade(chosen);
 
         Hide();
     }

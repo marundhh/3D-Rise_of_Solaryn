@@ -158,8 +158,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3401187082679137473}
   - {fileID: 5917370825857539608}
+  - {fileID: 3401187082679137473}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1358600951286455619
@@ -177,12 +177,20 @@ MonoBehaviour:
   bgmSource: {fileID: 3506560359615318854}
   sfxSource: {fileID: 7522692674351366448}
   audioMixer: {fileID: 24100000, guid: a55e407e8db49f74289d8f89732b665c, type: 2}
-  mainBGM: {fileID: 0}
+  BGMClips:
+  - {fileID: 8300000, guid: 74cdad13ea4bad84ea806a89b04c3ad8, type: 3}
+  - {fileID: 8300000, guid: 5cdca18f3d56fe54e929e651b5c0f306, type: 3}
+  - {fileID: 8300000, guid: 9b0128d06f9b7214198f73beca06cda7, type: 3}
+  BattleBGMClips:
+  - {fileID: 8300000, guid: 7a17ab6268ba80843b75eb896e5554e2, type: 3}
+  - {fileID: 8300000, guid: 66c3fea5739fc2448a583f9014242649, type: 3}
   clickSFX: {fileID: 0}
   winSFX: {fileID: 0}
   loseSFX: {fileID: 0}
   collectGemSFX: {fileID: 0}
-  moveSFX: {fileID: 0}
+  walkSFX: {fileID: 0}
+  runSFX: {fileID: 0}
+  rollSFX: {fileID: 0}
 --- !u!1 &6138207059670595092
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +233,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6075898208519104180, guid: a55e407e8db49f74289d8f89732b665c, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 74cdad13ea4bad84ea806a89b04c3ad8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

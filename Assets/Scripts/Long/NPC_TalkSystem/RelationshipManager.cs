@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class RelationshipManager : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class RelationshipManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public int GetRelationship(string npcName)
@@ -24,11 +24,27 @@ public class RelationshipManager : MonoBehaviour
         if (!relations.ContainsKey(npcName)) relations[npcName] = 0;
         relations[npcName] += amount;
     }
-    public void SaveRelationship()
+    public async Task SaveRelationship()
     {
-        var saveData = new RelationshipSaveData();
+        // Đọc dữ liệu cũ (nếu có)
+        RelationshipSaveData oldData = await NpcData.instance.LoadRelationshipsAsync();
 
+        // Chuyển dữ liệu cũ sang dictionary
+        Dictionary<string, int> mergedData = new Dictionary<string, int>();
+        foreach (var entry in oldData.entries)
+        {
+            mergedData[entry.npcName] = entry.value;
+        }
+
+        // Merge: thay đổi hoặc thêm mới từ relations hiện tại
         foreach (var pair in relations)
+        {
+            mergedData[pair.Key] = pair.Value; // nếu tồn tại sẽ ghi đè, nếu chưa có sẽ thêm
+        }
+
+        // Tạo saveData mới từ mergedData
+        var saveData = new RelationshipSaveData();
+        foreach (var pair in mergedData)
         {
             saveData.entries.Add(new RelationEntry
             {
@@ -37,17 +53,14 @@ public class RelationshipManager : MonoBehaviour
             });
         }
 
-        string json = JsonUtility.ToJson(saveData);
-        PlayerPrefs.SetString("RELATIONSHIP_SAVE", json);
-        PlayerPrefs.Save();
-    }
-    public void LoadRelationship()
-    {
-        Debug.Log("LoadRelationship");
-        if (!PlayerPrefs.HasKey("RELATIONSHIP_SAVE")) return;
+        await NpcData.instance.SaveRelationshipsAsync(saveData.entries);
 
-        string json = PlayerPrefs.GetString("RELATIONSHIP_SAVE");
-        var saveData = JsonUtility.FromJson<RelationshipSaveData>(json);
+
+    }
+
+    public async Task LoadRelationship()
+    {
+        var saveData = await NpcData.instance.LoadRelationshipsAsync();
 
         relations.Clear();
         foreach (var entry in saveData.entries)
@@ -55,11 +68,14 @@ public class RelationshipManager : MonoBehaviour
             relations[entry.npcName] = entry.value;
         }
     }
-    public void ResetRelationship()
+    public async Task ResetRelationship()
     {
+        // 1. Xóa dữ liệu trong bộ nhớ
         relations.Clear();
-        SaveRelationship();
-        Debug.Log("All relationships have been reset.");
+
+        // 2. Ghi đè dữ liệu rỗng vào PlayerPrefs
+        var emptyData = new RelationshipSaveData(); // danh sách entries rỗng
+        await NpcData.instance.SaveRelationshipsAsync(emptyData.entries);
     }
 }
 [System.Serializable]

@@ -14,36 +14,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockID: Story3D306
   actions:
-  - action: 8
+  - action: 9
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Sienna
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: d013bb76e52e3914a92daec6c8f4e171, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 1
     Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 3
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Sienna
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 4d6fe79a79ceff542886031ea030a2e5, type: 2}
     relationShipEff: 0
     dialogID: Branch3GoodB3
     storyID: 
     waitTime: 2
     Notification: After a while everything was fine.
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 2
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Sienna
     position: {x: 1000, y: 5, z: 1000}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 4d6fe79a79ceff542886031ea030a2e5, type: 2}
     relationShipEff: 0
     dialogID: Branch3GoodB3
     storyID: 
     waitTime: 2
     Notification: After a while everything was fine.
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}

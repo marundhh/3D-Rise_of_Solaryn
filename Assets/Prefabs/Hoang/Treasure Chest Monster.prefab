@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9162277685587167699}
   - component: {fileID: 8219845786596307081}
   - component: {fileID: 8279351395288957540}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 8677153908950424202}
   - component: {fileID: 2774058956572268090}
   - component: {fileID: 5169996367748182970}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.29319787, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.059916496, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2257372322612358585}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue4Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5787899964176240697}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2709350424281800563}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigLHandleGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 4012585017162928605}
   - component: {fileID: 2717076442457241911}
   - component: {fileID: 4565768697363608511}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Glitters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5127,7 +5127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5491393561539473963}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5160,7 +5160,7 @@ GameObject:
   - component: {fileID: 2827637402194445058}
   - component: {fileID: 1321562241536179156}
   - component: {fileID: 1938919123451092071}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: NameEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5292,7 +5292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8186768473301534258}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5325,7 +5325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1485009860032767214}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5356,7 +5356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6516807313071068592}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigRHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5387,7 +5387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 929153875326854267}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigLHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5418,7 +5418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5762181806889069079}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue2Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5449,7 +5449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5656086228251621401}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5484,7 +5484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3708973470004171058}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5516,7 +5516,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3107215915253685808}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigBottomGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5547,7 +5547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2782348164438531630}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTopGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5578,7 +5578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8063382714903577257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigSpine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5610,7 +5610,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3771209485938310002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5642,7 +5642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4432518232882652776}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5674,7 +5674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3586293380592011650}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigCoverGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5713,7 +5713,7 @@ GameObject:
   - component: {fileID: 987379351494233619}
   - component: {fileID: 1499824091121147307}
   - component: {fileID: 1367498144112209419}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Treasure Chest Monster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5783,7 +5783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9c233305d39924683097fa5f965f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   attackRange: 2
   runRange: 12
   retreatHealthThreshold: 0.2
@@ -5794,7 +5793,7 @@ MonoBehaviour:
   fireballSpawnPoints: []
   fireballArcHeight: 5
   fireballGravity: {x: 0, y: -10, z: 0}
-  weaponCollider: {fileID: 0}
+  weaponCollider: {fileID: 1754071829069582386}
 --- !u!114 &8654123643997781862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5832,10 +5831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1aaa81109218a42b423346176231f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 35
   maxArmor: 0
   maxMana: 0
-  maxPhysicalDamage: 5
+  maxPhysicalDamage: 3
   maxMagicDamage: 0
   maxCooldownReduction: 0
   maxMoveSpeed: 0
@@ -5853,10 +5852,14 @@ MonoBehaviour:
   isInvincible: 0
   isDead: 0
   ten: {fileID: 2336704031186725662}
-  dodgeChance: 80
+  expReward: 20
+  dodgeChance: 5
   healthBar: {fileID: 5169996367748182970}
   itemDropPrefab: {fileID: 0}
   dropCount: 1
+  dodgeTextPrefab: {fileID: 7273328859809013108, guid: 25970cb3f1cacd84ba172f0624942439, type: 3}
+  floatingTextPrefab: {fileID: 7273328859809013108, guid: 55d3da6e5d41d2845807a531927998de, type: 3}
+  textSpawnPoint: {fileID: 731275449056876353}
 --- !u!114 &1862966379977232229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5950,7 +5953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 44596044676213259}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue3Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5981,7 +5984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373461851017798675}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigRHandleGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6013,7 +6016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7054299255035864368}
   - component: {fileID: 5880136553656697505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Treasure Chest Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6108,7 +6111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 271964600725546489}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue5Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6139,7 +6142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7873991388439031604}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue1Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6170,7 +6173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095236988636503682}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigTongue3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6257,9 +6260,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1023238768604133395, guid: 6dc8440abe4dbce4ca353e018050908f, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 018b9054ac7a99249922d4b1ae11dfc5, type: 3}
     - target: {fileID: 7588023302624456511, guid: 6dc8440abe4dbce4ca353e018050908f, type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588023302624456511, guid: 6dc8440abe4dbce4ca353e018050908f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6269,5 +6280,10 @@ PrefabInstance:
 --- !u!4 &1696918402520430944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 959980954757330900, guid: 6dc8440abe4dbce4ca353e018050908f, type: 3}
+  m_PrefabInstance: {fileID: 1936024319570136756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1754071829069582386 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 182840900526317190, guid: 6dc8440abe4dbce4ca353e018050908f, type: 3}
   m_PrefabInstance: {fileID: 1936024319570136756}
   m_PrefabAsset: {fileID: 0}

@@ -10,6 +10,10 @@ public class WeaponData : ScriptableObject
     public float damage;
     public bool isHand = true;
 
+    public int price;
+    public string weaponName;
+    
+
     [Header("Weapon References")]
     public GameObject weaponModel;
     public RuntimeAnimatorController controller;

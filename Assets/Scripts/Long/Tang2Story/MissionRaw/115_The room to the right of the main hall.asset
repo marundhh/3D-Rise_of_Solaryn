@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e239e2be81ea245aaf2823cef8cb74, type: 3}
+  m_Name: 115_The room to the right of the main hall
+  m_EditorClassIdentifier: 
+  missionType: 0
+  id: 115
+  tile: The room to the right of the main hall
+  description: There is someone who can truly hold the power of the magic stone here.
+  type: The room to the right of the main hall
+  count: 0
+  loacation: The room to the right of the main hall
+  rewardGold: 0
+  rewardExp: 100
+  storyID: 

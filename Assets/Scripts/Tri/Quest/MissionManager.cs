@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Threading.Tasks;
 // ❌ KHÔNG dùng UnityEngine.EventSystems ở đây
 
 public class MissionManager : MonoBehaviour
@@ -12,13 +14,20 @@ public class MissionManager : MonoBehaviour
     [SerializeField] private List<Mission> activeMissions = new List<Mission>();
     private Dictionary<int, Mission> missionTemplates = new Dictionary<int, Mission>();
 
-    // 👇 GÁN PREFAB CỦA MARKER & MINIMAP ICON TRONG INSPECTOR
     public GameObject markerPrefab;
     public GameObject minimapIconPrefab;
 
     private void Awake()
     {
-        Instance = this;
+       if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void OnEnable()
@@ -75,7 +84,12 @@ public class MissionManager : MonoBehaviour
     }
 
     public List<Mission> GetAllMissions() => activeMissions;
-
+    public void ClearAllMions()
+    {
+        activeMissions.Clear();
+        missionTemplates.Clear();
+        Debug.Log("All missions cleared.");
+    }
     public Mission GetMissionByID(int id)
     {
         return activeMissions.Find(a => a.missionID == id);
@@ -83,13 +97,13 @@ public class MissionManager : MonoBehaviour
 
     // -------------------- MỞ RỘNG CHO DATABASE -----------------------
 
-    public void AcceptNewMission(MissionType missionType, int id, string tile, string decription, string type, int count, string loacation, int rewardGold, int rewardExp, string storyID, bool isCompleted = false)
+    public void AcceptNewMission(MissionType missionType, int id, string tile, string decription, string type, int count, string loacation, int rewardGold, int rewardExp, string storyID, bool isShow = false, int currentCount = 0)
     {
         Debug.Log("In create mision");
         if (missionTemplates.ContainsKey(id)) return;
 
         Debug.Log("Start create mision");
-        if(!isCompleted)
+        if (!isShow)
         {
             GetComponent<MissionDisplay>().ShowMissionDetails(new MissionRaw
             {
@@ -109,24 +123,26 @@ public class MissionManager : MonoBehaviour
         {
             case MissionType.FindWay:
                 Transform targetPoint = StoryExecutor.Instance.GetTransfromByID(loacation);
-                missionTemplates.Add(id, new ReachLocationMission(id, tile, decription, type, targetPoint, rewardGold, rewardExp));
+                missionTemplates.Add(id, new ReachLocationMission(id, tile, decription, type, targetPoint, rewardGold, rewardExp, storyID));
                 AcceptMissionByID(id);
                 break;
 
             case MissionType.TalkToNPC:
-              //  Debug.Log(loacation);
                 Transform targetPoint2 = StoryExecutor.Instance.GetTransfromByID(loacation);
-             //   Debug.Log(targetPoint2);
                 missionTemplates.Add(id, new TalkToNPCMission(id, tile, decription, type, targetPoint2, rewardGold, rewardExp));
                 AcceptMissionByID(id);
                 break;
 
             case MissionType.KillEnemy:
                 Transform targetPoint3 = StoryExecutor.Instance.GetTransfromByID(loacation);
-                missionTemplates.Add(id, new KillEnemyMission(id, tile, decription, type, count, targetPoint3, rewardGold, rewardExp, storyID));
+                missionTemplates.Add(id, new KillEnemyMission(id, tile, decription, type, count, targetPoint3, rewardGold, rewardExp, storyID, currentCount));
                 AcceptMissionByID(id);
                 break;
-
+            case MissionType.CollectionItem:
+                Transform targetPoint4 = StoryExecutor.Instance.GetTransfromByID(loacation);
+                missionTemplates.Add(id, new CollectItemMission(id, tile, decription, type, count, targetPoint4, rewardGold, rewardExp, storyID, currentCount));
+                AcceptMissionByID(id);
+                break;
             default:
                 Debug.Log("Không tạo nhiệm vụ không có loại nhiệm vụ như này" + missionType);
                 break;
@@ -140,7 +156,7 @@ public class MissionManager : MonoBehaviour
             Mission cloned = CloneMission(template);
             if (cloned != null)
                 AddMission(cloned); // 👈 Hiện marker nằm trong AddMission()
-         //   Debug.Log("Da nhan nhiem vu");
+                                    //   Debug.Log("Da nhan nhiem vu");
         }
         else
         {
@@ -151,13 +167,13 @@ public class MissionManager : MonoBehaviour
     private Mission CloneMission(Mission m)
     {
         if (m is KillEnemyMission km)
-            return new KillEnemyMission(km.missionID, km.Title, km.Description, km.EnemyType, km.RequiredKillCount, km.targetPoint, km.GetGoldReward(), km.GetExpReward(), km.GetStoryID());
+            return new KillEnemyMission(km.missionID, km.Title, km.Description, km.EnemyType, km.RequiredKillCount, km.targetPoint, km.GetGoldReward(), km.GetExpReward(), km.GetStoryID(), km.CurrentKillCount);
         else if (m is TalkToNPCMission tm)
             return new TalkToNPCMission(tm.missionID, tm.Title, tm.Description, tm.NPCName, tm.targetPoint, tm.GetGoldReward(), tm.GetExpReward());
         else if (m is ReachLocationMission rm)
-            return new ReachLocationMission(rm.missionID, rm.Title, rm.Description, rm.LocationName, rm.targetPoint, rm.GetGoldReward(), rm.GetExpReward());
+            return new ReachLocationMission(rm.missionID, rm.Title, rm.Description, rm.LocationName, rm.targetPoint, rm.GetGoldReward(), rm.GetExpReward(), rm.GetStoryID());
         else if (m is CollectItemMission cm)
-            return new CollectItemMission(cm.missionID, cm.Title, cm.Description, cm.ItemType, cm.RequiredCount);
+            return new CollectItemMission(cm.missionID, cm.Title, cm.Description, cm.ItemType, cm.RequiredCount, cm.targetPoint, cm.GetGoldReward(), cm.GetExpReward(), cm.GetStoryID(), cm.CurrentCount);
         else
             return null;
     }
@@ -183,6 +199,7 @@ public class MissionManager : MonoBehaviour
                 case KillEnemyMission km:
                     data.type = km.EnemyType;
                     data.count = km.RequiredKillCount;
+                    data.currentCount = km.CurrentKillCount;
                     data.location = km.targetPoint?.name ?? "";
                     data.storyID = km.GetStoryID();
                     break;
@@ -197,16 +214,14 @@ public class MissionManager : MonoBehaviour
                 case CollectItemMission cm:
                     data.type = cm.ItemType;
                     data.count = cm.RequiredCount;
+                    data.currentCount = cm.CurrentCount;
+
                     break;
             }
 
             list.Add(data);
         }
         return list;
-    }
-    public void MarkerCompleteMission(int id)
-    {
-        GetMissionByID(id).IsCompleted = true;
     }
 
     private MissionType GetMissionType(Mission mission)
@@ -218,59 +233,74 @@ public class MissionManager : MonoBehaviour
         return MissionType.FindWay; // default
     }
 
-    public void SaveMissionsToFile()
+
+    public async Task SaveMissionsToFile()
     {
-        var missionDataList = GetMissionSaveList();
-        string json = JsonUtility.ToJson(new MissionSaveListWrapper { missions = missionDataList });
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/missions.json", json);
-    }
-    public void LoadMissionsFromFile()
-    {
-        Debug.Log("Đang tải nhiệm vụ từ file...");
-        string path = Application.persistentDataPath + "/missions.json";
-        if (!System.IO.File.Exists(path))
+        MissionSaveListWrapper oldData = new MissionSaveListWrapper
         {
-            Debug.LogWarning(" Không tìm thấy file mission save.");
-            return;
+            missions = await NpcData.instance.LoadMissionsAsync()
+        };
+
+        // 2. Chuyển dữ liệu cũ sang dictionary (key có thể là missionId)
+        Dictionary<int, MissionSaveData> mergedData = new Dictionary<int, MissionSaveData>();
+        foreach (var mission in oldData.missions)
+        {
+            mergedData[mission.missionID] = mission;
         }
 
-        string json = System.IO.File.ReadAllText(path);
-        MissionSaveListWrapper wrapper = JsonUtility.FromJson<MissionSaveListWrapper>(json);
+        // 3. Merge từ dữ liệu mới
+        var newMissions = GetMissionSaveList();
+        foreach (var mission in newMissions)
+        {
+            mergedData[mission.missionID] = mission; // ghi đè nếu tồn tại, thêm nếu chưa có
+        }
 
-       activeMissions.Clear();
-      /*          foreach(var data in wrapper.missions)
-                {
-                    AcceptNewMission(data.missionType, data.missionID, data.title, data.description, data.type, data.count, data.location, data.rewardGold, data.rewardExp, data.storyID);
-                    if (data.isCompleted)
-                    {
-                        Debug.Log($"Nhiệm vụ {data.title} đã hoàn thành.");
-                        GetMissionByID(data.missionID).IsCompleted = true; // Đánh dấu nhiệm vụ là đã hoàn thành
-                    }
-                }*/
+        var missions = new List<MissionSaveData>(mergedData.Values);
+
+       await NpcData.instance.SaveMissionsAsync(missions);
+    }
+    public async Task LoadMissionsFromFile()
+    {
+        var listMissions = await NpcData.instance.LoadMissionsAsync();
+
+        var wrapper = new MissionSaveListWrapper
+        {
+            missions = listMissions
+        };
+
+        activeMissions.Clear();
+
         for (int i = 0; i < wrapper.missions.Count; i++)
         {
-            if (wrapper.missions[i].missionID == wrapper.missions[wrapper.missions.Count - 1].missionID)
+            var missionData = wrapper.missions[i];
+            AcceptNewMission(missionData.missionType, missionData.missionID, missionData.title, missionData.description,
+               missionData.type, missionData.count, missionData.location, missionData.rewardGold,
+               missionData.rewardExp, missionData.storyID, true, missionData.currentCount);
+            Debug.Log($"Đã tải nhiệm vụ: {missionData.title} (ID: {missionData.missionID}) | lacation {missionData.location}| current count {missionData.currentCount}");
+
+            if (missionData.isCompleted)
             {
-                continue;
-            }
-            AcceptNewMission(wrapper.missions[i].missionType, wrapper.missions[i].missionID, wrapper.missions[i].title, wrapper.missions[i].description, 
-                wrapper.missions[i].type, wrapper.missions[i].count, wrapper.missions[i].location, wrapper.missions[i].rewardGold,
-                wrapper.missions[i].rewardExp, wrapper.missions[i].storyID, wrapper.missions[i].isCompleted);
-            Debug.Log($"Đã tải nhiệm vụ: {wrapper.missions[i].title} (ID: {wrapper.missions[i].missionID})");
-            if (wrapper.missions[i].isCompleted) 
-            {
-                Debug.Log($"Nhiệm vụ {wrapper.missions[i].title} đã hoàn thành.");
-                GetMissionByID(wrapper.missions[i].missionID).IsCompleted = true;
+                Debug.Log($"Nhiệm vụ {missionData.title} đã hoàn thành.");
+                var mission = GetMissionByID(missionData.missionID);
+                if (mission != null)
+                {
+                    mission.IsCompleted = true;
+                }
             }
 
         }
 
     }
-    public void ClearAllMissions()
+    public async Task ClearAllMissions()
     {
+        // 1. Xóa dữ liệu trong bộ nhớ
         activeMissions.Clear();
         missionTemplates.Clear();
-        Debug.Log("Đã xóa tất cả nhiệm vụ.");
+
+        // 2. Ghi đè file rỗng
+        var emptyWrapper = new List<MissionSaveData>(); // Danh sách rỗng
+        await  NpcData.instance.SaveMissionsAsync(emptyWrapper);
+        Debug.Log("Đã xóa tất cả nhiệm vụ và ghi đè file rỗng.");
     }
 }
 
@@ -289,13 +319,17 @@ public class MissionSaveData
     public string description;
     public string type;
     public int count;
+    public int currentCount;
     public string location;
     public int rewardGold;
     public int rewardExp;
-    public MissionType missionType;
+    [JsonConverter(typeof(StringEnumConverter))]
+    public MissionType missionType { get; set; }
     public bool isCompleted;
-    public string storyID; 
+    public string storyID = string.Empty;
 }
+
+
 public enum MissionType
 {
     FindWay,

@@ -11,6 +11,14 @@ TagManager:
   - MissionTarget
   - MinimapIcon
   - Weapon
+  - NPCWalk
+  - Avoid
+  - QuantityText
+  - Minion
+  - Ground
+  - Phase3SpawnPoint
+  - BossOnePhase3SpawnPoint
+  - CameraTaget
   layers:
   - Default
   - TransparentFX
@@ -20,9 +28,9 @@ TagManager:
   - UI
   - Character
   - UIModel
-  - 
-  - 
-  - 
+  - Obstacles
+  - Minion
+  - MiniMap
   - 
   - 
   - Ground

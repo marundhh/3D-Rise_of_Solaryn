@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2144703578702397029}
   - component: {fileID: 8937272766853251636}
   - component: {fileID: 5830379535381742757}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.29319787, a: 1}
+  m_Color: {r: 1, g: 0.09067255, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -164,7 +164,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e2f3ef2dcd6d3e040bdf781851f76524, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -209,10 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1aaa81109218a42b423346176231f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 50
   maxArmor: 0
   maxMana: 0
-  maxPhysicalDamage: 5
+  maxPhysicalDamage: 2
   maxMagicDamage: 0
   maxCooldownReduction: 0
   maxMoveSpeed: 0
@@ -230,10 +230,14 @@ MonoBehaviour:
   isInvincible: 0
   isDead: 0
   ten: {fileID: 4067893790617580737}
-  dodgeChance: 80
+  expReward: 30
+  dodgeChance: 25
   healthBar: {fileID: 5830379535381742757}
   itemDropPrefab: {fileID: 0}
   dropCount: 1
+  dodgeTextPrefab: {fileID: 7273328859809013108, guid: 25970cb3f1cacd84ba172f0624942439, type: 3}
+  floatingTextPrefab: {fileID: 7273328859809013108, guid: 55d3da6e5d41d2845807a531927998de, type: 3}
+  textSpawnPoint: {fileID: 7198193076637787868}
 --- !u!136 &6902548991888123291
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -318,7 +322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9c233305d39924683097fa5f965f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   attackRange: 2
   runRange: 12
   retreatHealthThreshold: 0.2
@@ -1136,7 +1139,7 @@ GameObject:
   - component: {fileID: 642157404850523285}
   - component: {fileID: 9120454775612051300}
   - component: {fileID: 1280047590700086793}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: NameEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1558,7 +1561,7 @@ GameObject:
   - component: {fileID: 1426038116510593791}
   - component: {fileID: 2846743802121182564}
   - component: {fileID: 180515249439640332}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2127,7 +2130,7 @@ GameObject:
   - component: {fileID: 6047286508960334977}
   - component: {fileID: 1762704653766006897}
   - component: {fileID: 3081403430857814541}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2339,6 +2342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a5ae499e0311846a3673ee358bd4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodEffectPrefab: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!65 &6661125703209729560
 BoxCollider:
   m_ObjectHideFlags: 0

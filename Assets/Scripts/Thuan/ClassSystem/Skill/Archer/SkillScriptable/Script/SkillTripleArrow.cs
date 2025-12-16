@@ -12,12 +12,11 @@ using Unity.VisualScripting;
 public class SkillTripleArrow : SkillBase
 {
     public float damageMultiplier;
-    public float coneAngle = 45f;              // Góc hình nón bắn
-    public float slowAmount = 0.4f;            // Làm chậm (40%)
-    public float slowDuration = 2f;
-    public int arrowCount = 3;                 // Số mũi tên (3 mũi)
+    public float coneAngle = 45f;
+    public float range = 5f;
     public LayerMask enemyLayer;
-
+    public GameObject skillEffect1;
+    public GameObject skillEffect2;
     //public GameObject effectPrefab;
 
 }

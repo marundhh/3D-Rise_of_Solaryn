@@ -12,14 +12,14 @@ using UnityEngine;
 public class RuntimeProtectShield : RuntimeSkillBase
 {
 
-    private SkillArmorBuff data;
+    private SkillArmorBuff skillData;
     private PlayerStats stats;
     private List<ParticleSystem> magicShieldEffects;
 
     public MagicShieldObject magicShieldObject;
     public GameObject skillEffect;
-    public override float Cooldown => data.Cooldown;
-    public override float ManaCost => data.ManaCost;
+    public override float Cooldown => skillData.Cooldown;
+    public override float ManaCost => skillData.ManaCost;
 
     [Header("Runtime Item")]
     private ParticleSystem runtimeSkillEff;
@@ -27,24 +27,25 @@ public class RuntimeProtectShield : RuntimeSkillBase
     public RuntimeProtectShield(SkillArmorBuff data, GameObject userObj, SkillController control)
     {
         skillController = control;
-        this.data = data;
+        this.skillData = data;
         user = userObj;
 
         stats = user.transform.parent.GetComponent<PlayerStats>();
         animator = user.GetComponent<Animator>();
         audioSource = user.GetComponentInChildren<AudioSource>();
-        skillEffect = data.skillEffect;
+        skillEffect = skillData.skillEffect;
+        skillController.skillIcon[1].sprite = skillData.SkillIcon;
     }
 
     public void PlaySoundEff()
     {
         audioSource.loop = false;
-        audioSource.clip = data?.skillSoundEff;
+        audioSource.clip = skillData?.skillSoundEff;
         audioSource?.Play();
     }
     public void StopSoundEff()
     {
-        audioSource.clip = data?.skillSoundEff;
+        audioSource.clip = skillData?.skillSoundEff;
         audioSource?.Stop();
     }
     public void PlaySkillEff()
@@ -60,7 +61,7 @@ public class RuntimeProtectShield : RuntimeSkillBase
     {
         if (runtimeMagicShieldObject == null)
         {
-            runtimeMagicShieldObject = GameObject.Instantiate(data.magicShieldObject, skillController.tranformSkillEffects);
+            runtimeMagicShieldObject = GameObject.Instantiate(skillData.magicShieldObject, skillController.tranformSkillEffects);
             runtimeMagicShieldObject.transform.position += new Vector3(0, 1, 0);
         }
 
@@ -92,7 +93,7 @@ public class RuntimeProtectShield : RuntimeSkillBase
 
         try
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(data.Duration), cancellationToken: cancelTokenSource.Token);
+            await UniTask.Delay(TimeSpan.FromSeconds(skillData.Duration), cancellationToken: cancelTokenSource.Token);
         }
         catch (OperationCanceledException) { }
         if (magicShieldEffects != null)
@@ -108,7 +109,7 @@ public class RuntimeProtectShield : RuntimeSkillBase
     public void StartSkilFeature()
     {
         baseCurrentArmor = stats.currentArmor;
-        stats.currentArmor *= data.armorMultiply;
+        stats.currentArmor *= skillData.armorMultiply;
         PlayerStats.instance = stats;
     }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
   m_Name: Story3D302 1
   m_EditorClassIdentifier: 
-  blockID: a
+  blockID: Story3D3021
   actions:
   - action: 4
     prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}

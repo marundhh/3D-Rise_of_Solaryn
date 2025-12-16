@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6643751254390808551}
   - component: {fileID: 7864483760828775652}
   - component: {fileID: 5492090182497932970}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Nav
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.07666667
+  m_VoxelSize: 1.86
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: d77a8099ce4f945439208b4e46863a55, type: 2}
   m_BuildHeightMesh: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.34
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: c8953c6278542194683c6fd40a3aa9a7, type: 2}
   m_BuildHeightMesh: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 2.3333333
+  m_VoxelSize: 2.1866667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 1bbf00d105eb7144a915029c66da3d54, type: 2}
   m_BuildHeightMesh: 0

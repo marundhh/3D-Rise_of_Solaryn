@@ -5,16 +5,15 @@ public class MiniMapManager : MonoBehaviour
     public GameObject miniMapSmall;
     public GameObject miniMapBig;
     public Camera miniMapCamera;
-    public MiniMapFollow miniMapFollow;
     public MinimapDragController dragController; // Gán trong Inspector
 
     private bool isBigMap = false;
 
     void Start()
     {
-        if (miniMapSmall == null || miniMapBig == null || miniMapCamera == null || miniMapFollow == null || dragController == null)
+        if (miniMapSmall == null || miniMapBig == null || miniMapCamera == null || dragController == null)
         {
-            Debug.LogError("⚠️ MiniMapManager: Chưa gán đủ đối tượng trong Inspector!");
+            Debug.LogError("MiniMapManager: Chưa gán đủ đối tượng trong Inspector!");
             return;
         }
 
@@ -40,9 +39,8 @@ public class MiniMapManager : MonoBehaviour
         miniMapBig.SetActive(isBigMap);
 
         miniMapCamera.orthographicSize = isBigMap ? 50f : 10f;
-        miniMapFollow.SetFollow(!isBigMap);
         dragController.enabled = isBigMap; // Bật kéo khi mở map lớn
 
-        Debug.Log($"📌 MiniMap: {(isBigMap ? "Toàn màn hình" : "Nhỏ")}");
+        Debug.Log($"MiniMap: {(isBigMap ? "Toàn màn hình" : "Nhỏ")}");
     }
 }

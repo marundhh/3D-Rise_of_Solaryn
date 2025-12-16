@@ -17,7 +17,7 @@ MonoBehaviour:
   tile: Kill Dragon Big
   description: 
   type: Dragon Big
-  count: 1
+  count: 5
   loacation: Dragon
   rewardGold: 0
   rewardExp: 300

@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
+  m_Name: Story2D401
+  m_EditorClassIdentifier: 
+  blockID: Story2D401
+  actions:
+  - action: 9
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: af1d93df377b02148a801351bd94f004, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 2
+    Notification: I need to explore all the rooms here to find enough magic stones
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 0
+    cameraLookDuration: 0
+  - action: 3
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: a0eab230285234c478cccb237df264e9, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 0
+    cameraLookDuration: 0
+  - action: 0
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: The room to the right of the main hall
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: 9759bf6d75fc69a4d8f188edd1e1b7cc, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 0
+    cameraLookDuration: 0
+  - action: 3
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: 
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: 4273a57572d03a942838ada8e63e4fba, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 0
+    cameraLookDuration: 0

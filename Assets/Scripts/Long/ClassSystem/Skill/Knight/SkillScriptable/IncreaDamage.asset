@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: IncreaDamage
   skillDescription: IncreaDamage
-  cooldown: 2
-  duration: 5
-  manaCost: 15
+  cooldown: 35
+  duration: 10
+  manaCost: 50
+  skillIcon: {fileID: 21300000, guid: 6b1f0e25ca111454a825a6ffddd27b91, type: 3}
   skillSoundEff: {fileID: 8300000, guid: 018b9054ac7a99249922d4b1ae11dfc5, type: 3}
   skillEffect: {fileID: 2441316447743931848, guid: a83a1e52a4dfc3447a9fd9ef33b1fe79, type: 3}
   increaDamageMultiply: 1.5

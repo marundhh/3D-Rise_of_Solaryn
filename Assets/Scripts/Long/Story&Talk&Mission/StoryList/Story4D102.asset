@@ -14,36 +14,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockID: Story4D102
   actions:
-  - action: 8
+  - action: 9
     prefabs: {fileID: 0}
     count: 0
     targetID: 
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 1
     Notification: Enter the boss base with Sienna
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 3
     prefabs: {fileID: 0}
     count: 0
     targetID: 
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 3ba45a1af90d7c843ae4b30a12ba2e60, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 2
     Notification: All enemies are defeat
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 2
     prefabs: {fileID: 0}
     count: 0
     targetID: Sienna
     position: {x: -628, y: -2, z: -32}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 3ba45a1af90d7c843ae4b30a12ba2e60, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 2
     Notification: All enemies are defeat
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}

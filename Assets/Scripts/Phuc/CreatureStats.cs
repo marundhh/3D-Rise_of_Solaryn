@@ -13,6 +13,16 @@ public abstract class CreatureStats : MonoBehaviour
     [SerializeField] protected float maxAttackSpeed;
     [SerializeField] protected float maxAttackRange;
 
+    public float MaxHealth => maxHealth;
+    public float MaxArmor => maxArmor;
+    public float MaxMana => maxMana;
+    public float MaxPhysicalDamage => maxPhysicalDamage;
+    public float MaxMagicDamage => maxMagicDamage;
+    public float MaxCooldownReduction => maxCooldownReduction;
+    public float MaxMoveSpeed => maxMoveSpeed;
+    public float MaxAttackSpeed => maxAttackSpeed;
+    public float MaxAttackRange => maxAttackRange;
+
     [Header("---------------------------")]
 
     [Header("CURRENT STATS")]

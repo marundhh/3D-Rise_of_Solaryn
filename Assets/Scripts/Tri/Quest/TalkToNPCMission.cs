@@ -17,7 +17,7 @@ public class TalkToNPCMission : Mission
         Description = description;
         npcName = npc;
         targetPoint = Location;
-        playerPoint = GameObject.FindWithTag("Player").transform;
+        playerPoint = GameObject.FindWithTag("Player")?.transform;
         IsCompleted = false;
         this.rewardGold = rewardGold;
         this.rewardExp = rewardExp;
@@ -27,13 +27,13 @@ public class TalkToNPCMission : Mission
     {
         if (e is TalkToNPCEvent ev && ev.npcName == npcName)
         {
-            IsCompleted = true;
+            OnMissionComplete();
         }
     }
 
     public override string GetProgressText()
     {
-        return IsCompleted ? $"Spoke with {npcName}" : $"Need to talking with <color=red>{npcName}</color>. ({(int)GetCurrentDistance()} m)";
+        return IsCompleted ? $"Interacted {npcName}" : $"Interact with <color=red>{npcName}</color>. ({(int)GetCurrentDistance()} m)";
     }
 
     public float GetCurrentDistance()

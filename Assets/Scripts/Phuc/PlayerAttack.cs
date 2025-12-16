@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject model;
+    [SerializeField] private AudioSource audioSource;
 
     private enum AttackState { Idle, Attack1, WaitingForCombo, Attack2 }
     private AttackState attackState = AttackState.Idle;
@@ -19,13 +20,17 @@ public class PlayerAttack : MonoBehaviour
 
     private bool hasDealtDamage = false;
 
+
     private void Start()
     {
         attackRange = PlayerStats.instance.currentAttackRange;
+
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
+        //Debug.Log(attackState);
         switch (attackState)
         {
             case AttackState.Idle:
@@ -55,21 +60,41 @@ public class PlayerAttack : MonoBehaviour
 
     private void StartAttack1()
     {
+        PlayAttackSound();
+
         SetModelRotationY(50f);
         attackState = AttackState.Attack1;
         hasDealtDamage = false;
 
         PlayerState.instance.SetCurrentState(PlayerState.state.Attack);
         AnimationManager.instance.PlayAttackCombo(1);
+
+        if (attackTimeoutCoroutine != null) StopCoroutine(attackTimeoutCoroutine);
+        attackTimeoutCoroutine = StartCoroutine(AttackTimeout(1f)); // 1 giây
     }
 
     private void StartAttack2()
     {
+        PlayAttackSound();
+
         SetModelRotationY(50f);
         attackState = AttackState.Attack2;
         hasDealtDamage = false;
 
         AnimationManager.instance.PlayAttackCombo(2);
+
+        if (attackTimeoutCoroutine != null) StopCoroutine(attackTimeoutCoroutine);
+        attackTimeoutCoroutine = StartCoroutine(AttackTimeout(1f)); // 1 giây
+    }
+
+    private void PlayAttackSound()
+    {
+        var clip = ClassDataPlayerChoose.instance.characterClassData.attackSound;
+
+        if (clip != null)
+        {
+            AudioManager.Instance.PlayAttackSFX(clip);
+        }
     }
 
     private void RotateToMouse()
@@ -101,24 +126,38 @@ public class PlayerAttack : MonoBehaviour
 
     private void AttackRay()
     {
+        float currentRange = PlayerStats.instance.currentAttackRange; // luôn lấy mới
         Vector3 direction = transform.forward;
 
-        if (Physics.Raycast(firePoint.position, direction, out RaycastHit enemyHit, attackRange, enemyLayer))
+        if (Physics.Raycast(firePoint.position, direction, out RaycastHit enemyHit, currentRange, enemyLayer))
         {
             EnemyStats targetStats = enemyHit.collider.GetComponent<EnemyStats>();
             if (targetStats != null)
             {
-                float damage = PlayerStats.instance.currentPhysicalDamage + PlayerStats.instance.currentMagicDamage;
+                float damage = PlayerStats.instance.currentPhysicalDamage + PlayerStats.instance.currentMagicDamage
+                    + WeaponManager.instance.selectedWeaponData.damage;
                 Debug.Log("Damage player: " + damage);
                 targetStats.TakeDamage(damage);
             }
         }
 
-        Debug.DrawLine(firePoint.position, firePoint.position + direction * attackRange, Color.white, 1f);
+        Debug.DrawLine(firePoint.position, firePoint.position + direction * currentRange, Color.white, 1f);
+    }
+    private Coroutine attackTimeoutCoroutine;
+
+    private IEnumerator AttackTimeout(float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (attackState == AttackState.Attack1 || attackState == AttackState.Attack2)
+        {
+            Debug.LogWarning("Attack timeout - resetting state");
+            ResetAttack();
+        }
     }
 
     public void OnAttack1Complete()
     {
+        if (attackTimeoutCoroutine != null) StopCoroutine(attackTimeoutCoroutine);
         SetModelRotationY(0f);
         attackState = AttackState.WaitingForCombo;
         comboTimer = comboWindow;
@@ -126,8 +165,19 @@ public class PlayerAttack : MonoBehaviour
 
     public void OnAttack2Complete()
     {
+        if (attackTimeoutCoroutine != null) StopCoroutine(attackTimeoutCoroutine);
         SetModelRotationY(0f);
         ResetAttack();
+    }
+
+    private IEnumerator AutoResetAfter(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (attackState == AttackState.WaitingForCombo)
+        {
+            ResetAttack();
+        }
     }
 
     public void DealDamageAttack()

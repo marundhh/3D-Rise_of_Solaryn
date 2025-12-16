@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class DialogueBlockNpcHandler : MonoBehaviour
 {
@@ -15,8 +16,11 @@ public class DialogueBlockNpcHandler : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        Init();
+    }
 
+    public void Init()
+    {
         npcSetDict = new Dictionary<string, NPCDialogueSet>();
         foreach (var set in allNpcDialogueSets)
         {
@@ -31,7 +35,6 @@ public class DialogueBlockNpcHandler : MonoBehaviour
                 npcDialogueID.Add(key, "start");
         }
     }
-
     public void SetNpcDialogueID(string npcName, string dialogueID)
     {
         if (npcDialogueID.ContainsKey(npcName))
@@ -44,18 +47,37 @@ public class DialogueBlockNpcHandler : MonoBehaviour
 
     public string GetDialogueID(string npcName)
     {
+    //    Debug.Log($"GetDialogueID called for NPC: {npcName}");
         if (npcDialogueID.TryGetValue(npcName, out var set))
         {
             return set;
         }
         return null;
     }
-    public void SaveDialogueProgress()
+    public async Task SaveDialogueProgress()
     {
-        var saveData = new NpcDialogueSaveData();
+        // Đọc dữ liệu cũ (nếu có)
+        NpcDialogueSaveData oldData = await NpcData.instance.LoadNpcDialoguesAsync();
 
+        // Chuyển dữ liệu cũ sang dictionary
+        Dictionary<string, string> mergedData = new Dictionary<string, string>();
+        foreach (var entry in oldData.entries)
+        {
+            mergedData[entry.npcName] = entry.dialogueID;
+        }
+
+        // Merge: thay đổi hoặc thêm mới từ npcDialogueID hiện tại
         foreach (var pair in npcDialogueID)
         {
+           // Debug.Log($"Merging NPC: {pair.Key}, Dialogue ID: {pair.Value}");
+            mergedData[pair.Key] = pair.Value; // nếu tồn tại sẽ ghi đè, nếu chưa có sẽ thêm
+        }
+
+        // Tạo saveData mới từ mergedData
+        var saveData = new NpcDialogueSaveData();
+        foreach (var pair in mergedData)
+        {
+          //  Debug.Log($"Saving NPC: {pair.Key}, Dialogue ID: {pair.Value}");
             saveData.entries.Add(new NpcDialogueEntry
             {
                 npcName = pair.Key,
@@ -63,34 +85,44 @@ public class DialogueBlockNpcHandler : MonoBehaviour
             });
         }
 
-        string json = JsonUtility.ToJson(saveData);
-        PlayerPrefs.SetString("NPC_DIALOGUE_SAVE", json);
-        PlayerPrefs.Save();
+       await NpcData.instance.SaveNpcDialoguesAsync(saveData.entries);
+
     }
 
-    public void LoadDialogueProgress()
+
+    public async Task LoadDialogueProgress()
     {
-        Debug.Log("LoadDialogueProgress called");
-        if (!PlayerPrefs.HasKey("NPC_DIALOGUE_SAVE")) return;
+        Debug.Log("Loading NPC dialogues from API...");
+        // Gọi API để lấy dữ liệu
+        var saveData = await NpcData.instance.LoadNpcDialoguesAsync();
 
-        string json = PlayerPrefs.GetString("NPC_DIALOGUE_SAVE");
-        var saveData = JsonUtility.FromJson<NpcDialogueSaveData>(json);
-        npcDialogueID.Clear();
-
-        foreach (var entry in saveData.entries)
+        if (saveData.entries.Count != 0)
         {
-            npcDialogueID[entry.npcName] = entry.dialogueID;
+            npcDialogueID.Clear();
+            foreach (var entry in saveData.entries)
+            {
+                npcDialogueID[entry.npcName] = entry.dialogueID;
+            }
+        }
+        else
+        {
+            Debug.Log("No saved dialogue data found, initializing with default values.");
         }
     }
-    public void ResetDialogueProgress()
+    public async Task ResetDialogueProgress()
     {
         Debug.Log("ResetDialogueProgress called");
+        // 1. Xóa dữ liệu trong bộ nhớ
         npcDialogueID.Clear();
-        foreach (var key in npcSetDict.Keys)
-        {
-            npcDialogueID[key] = "start"; // Hoặc ID mặc định khác
-        }
-        SaveDialogueProgress();
+
+        // 2. Ghi đè dữ liệu rỗng vào PlayerPrefs
+        var emptyData = new NpcDialogueSaveData(); // entries rỗng
+
+       await NpcData.instance.SaveNpcDialoguesAsync(emptyData.entries);
+
+        Debug.Log("All dialogue progress has been reset (empty data saved).");
+
+
     }
 }
 

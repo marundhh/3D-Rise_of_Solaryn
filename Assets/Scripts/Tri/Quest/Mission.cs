@@ -22,4 +22,17 @@ public abstract class Mission : ScriptableObject
     public int GetGoldReward() => rewardGold;
     public int GetExpReward() => rewardExp;
     public string GetStoryID() => storyID;
+
+    public void OnMissionComplete()
+    {
+        IsCompleted = true;
+        if (!string.IsNullOrEmpty(storyID))
+            CallSetupStory();
+        PlayerLevel.instance.GainExp(rewardExp);
+        PlayerData.instance.AddCoin(rewardGold);
+    }
+    public async void CallSetupStory()
+    {
+        await GameFlowManager.Instance.CallSetupStoryWithOutSave(storyID);
+    }
 }

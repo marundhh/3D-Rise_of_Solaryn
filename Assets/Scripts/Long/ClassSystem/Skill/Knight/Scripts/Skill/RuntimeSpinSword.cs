@@ -27,6 +27,7 @@ public class RuntimeSpinSword : RuntimeSkillBase
         animator = user.GetComponent<Animator>();
         audioSource = user.GetComponentInChildren<AudioSource>();
         skillEffects = skillData.skillEffect;
+        skillController.skillIcon[0].sprite = skillData.SkillIcon;
     }
 
     public void PlaySoundEff()

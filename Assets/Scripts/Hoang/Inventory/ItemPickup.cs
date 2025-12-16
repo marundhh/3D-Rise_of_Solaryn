@@ -1,74 +1,89 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class ItemPickup : MonoBehaviour
 {
-    [Header("Item Settings")]
-    public ItemData itemData;            // ScriptableObject chứa thông tin item
-    public WeaponData weaponData;
-    public GameObject pickupCanvas = null;   // UI canvas “Press E to pick up”
+    [Header("Pickup Content")]
+    public ItemData itemData;           // có thể null nếu không phải item
+    [Tooltip("Số lượng nếu stackable (chỉ áp dụng cho item)")]
+    public int itemAmount = 1;
+
+    public WeaponData weaponData;       // có thể null nếu không phải weapon
+
+    [Header("Input")]
+    public KeyCode pickupKey = KeyCode.X;
 
     private bool isPlayerNearby = false;
 
-    void Start()
-    {
-        // Nếu canvas không null thì tắt
-        if (pickupCanvas != null)
-        {
-            pickupCanvas.SetActive(false);
-        }
-    }
-
     void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.X))
+        if (isPlayerNearby && Input.GetKeyDown(pickupKey))
         {
-            Pickup();
+            PickupAll();
         }
-    }
-
-    void Pickup()
-    {
-        if (itemData != null)
-        {
-            InventoryManager.instance.AddItem(itemData);
-        }
-
-        if (weaponData != null)
-        {
-            InventoryManager.instance.AddItem(weaponData);
-        }
-
-        if (pickupCanvas != null)
-        {
-            pickupCanvas.SetActive(false);
-        }
-
-        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNearby = true;
+        if (!other.CompareTag("Player")) return;
 
-            if (pickupCanvas != null)
-            {
-                pickupCanvas.SetActive(true);
-            }
+        isPlayerNearby = true;
+
+        if (itemData != null)
+        {
+            PickupUIManager.Instance.RegisterVisible(itemData, itemAmount);
+        }
+
+        if (weaponData != null)
+        {
+            PickupUIManager.Instance.RegisterVisible(weaponData);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNearby = false;
+        if (!other.CompareTag("Player")) return;
 
-            if (pickupCanvas != null)
-            {
-                pickupCanvas.SetActive(false);
-            }
+        isPlayerNearby = false;
+
+        if (itemData != null)
+        {
+            PickupUIManager.Instance.UnregisterVisible(itemData);
         }
+
+        if (weaponData != null)
+        {
+            PickupUIManager.Instance.UnregisterVisible(weaponData);
+        }
+    }
+
+    private void PickupAll()
+    {
+        if (itemData != null)
+        {
+            if (InventoryManager.instance != null)
+                InventoryManager.instance.AddItem(itemData);
+
+            PickupUIManager.Instance.Consume(itemData);
+        }
+
+        if (weaponData != null)
+        {
+            if (InventoryManager.instance != null)
+                InventoryManager.instance.AddItem(weaponData);
+
+            PickupUIManager.Instance.Consume(weaponData);
+        }
+
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        // phòng trường hợp object bị hủy mà UI chưa dọn
+        if (itemData != null)
+            PickupUIManager.Instance.UnregisterVisible(itemData);
+        if (weaponData != null)
+            PickupUIManager.Instance.UnregisterVisible(weaponData);
     }
 }

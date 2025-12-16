@@ -6,9 +6,9 @@ public class AI_Movement : MonoBehaviour
     Animator animator;
 
     [Header("Movement Settings")]
-    public float moveSpeed = 0.2f;            // Tốc độ di chuyển
-    public float minWalkDuration = 10f;       // Thời gian đi bộ tối thiểu
-    public float maxWalkDuration = 15f;       // Thời gian đi bộ tối đa
+    public float moveSpeed = 0.2f;
+    public float minWalkDuration = 10f;
+    public float maxWalkDuration = 15f;
 
     [Header("Wait and Sit Settings")]
     public float minWaitTime = 5f;
@@ -16,7 +16,7 @@ public class AI_Movement : MonoBehaviour
     public float minSitTime = 5f;
     public float maxSitTime = 7f;
 
-    [Header("Player Detection")]
+    [Header("Player/Minion Detection")]
     public float detectRange = 5f;
 
     Vector3 stopPosition;
@@ -32,7 +32,8 @@ public class AI_Movement : MonoBehaviour
     int WalkDirection;
     public bool isWalking;
 
-    Transform player;
+    Transform currentTarget;
+    bool hasDetectedTarget = false;
 
     private bool isReturning = false;
     private Vector3 returnTarget;
@@ -47,63 +48,57 @@ public class AI_Movement : MonoBehaviour
     float obstacleCheckInterval = 0.5f;
     float obstacleCheckTimer = 0f;
 
-    bool hasDetectedPlayer = false;
-
     void Start()
     {
         animator = GetComponent<Animator>();
         initialPosition = transform.position;
-
         ChooseDirection();
-
-        GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
-        if (foundPlayer != null)
-            player = foundPlayer.transform;
-
         lastPosition = transform.position;
     }
 
     void Update()
     {
-        if (player == null) return;
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (turnAroundTimer > 0)
-            turnAroundTimer -= Time.deltaTime;
-
+        turnAroundTimer -= Time.deltaTime;
         obstacleCheckTimer -= Time.deltaTime;
 
-        if (distanceToPlayer <= detectRange)
+        currentTarget = FindNearestTarget(new string[] { "Player", "Minion" });
+
+        if (currentTarget != null)
         {
-            hasDetectedPlayer = true;
-            isWalking = false;
-            isReturning = false;
+            float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
 
-            animator.SetBool("isRunning", false);
-            animator.SetBool("isSitting", false);
-
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            directionToPlayer.y = 0f;
-
-            if (directionToPlayer != Vector3.zero)
+            if (distanceToTarget <= detectRange)
             {
-                Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-            }
+                hasDetectedTarget = true;
+                isWalking = false;
+                isReturning = false;
 
-            return;
+                animator.SetBool("isRunning", false);
+                animator.SetBool("isSitting", false);
+
+                Vector3 dir = (currentTarget.position - transform.position).normalized;
+                dir.y = 0f;
+
+                if (dir != Vector3.zero)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(dir);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+                }
+
+                return;
+            }
         }
-        else if (hasDetectedPlayer)
+
+        if (hasDetectedTarget)
         {
-            hasDetectedPlayer = false;
+            hasDetectedTarget = false;
             ReturnTo(initialPosition);
             return;
         }
 
         if (isReturning)
         {
-            Vector3 dir = (returnTarget - transform.position);
+            Vector3 dir = returnTarget - transform.position;
             dir.y = 0f;
 
             if (dir.magnitude <= 0.2f)
@@ -126,7 +121,6 @@ public class AI_Movement : MonoBehaviour
             return;
         }
 
-        // Check obstacle
         if (isWalking && obstacleCheckTimer <= 0f)
         {
             Vector3 rayOrigin = transform.position + Vector3.up * 0.5f;
@@ -148,7 +142,6 @@ public class AI_Movement : MonoBehaviour
             }
         }
 
-        // Check stuck
         if (Vector3.Distance(transform.position, lastPosition) < 0.01f && isWalking)
         {
             stuckTime += Time.deltaTime;
@@ -170,7 +163,7 @@ public class AI_Movement : MonoBehaviour
 
         lastPosition = transform.position;
 
-        // AI movement logic
+        // Movement logic
         if (isWalking)
         {
             animator.SetBool("isRunning", true);
@@ -270,5 +263,27 @@ public class AI_Movement : MonoBehaviour
         isWalking = false;
         animator.SetBool("isRunning", true);
         animator.SetBool("isSitting", false);
+    }
+
+    private Transform FindNearestTarget(string[] tags)
+    {
+        float closestDistance = Mathf.Infinity;
+        Transform nearest = null;
+
+        foreach (string tag in tags)
+        {
+            GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
+            foreach (GameObject target in targets)
+            {
+                float dist = Vector3.Distance(transform.position, target.transform.position);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                    nearest = target.transform;
+                }
+            }
+        }
+
+        return nearest;
     }
 }

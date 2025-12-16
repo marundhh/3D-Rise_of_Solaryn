@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6311e89e06ea88642bb5f4165b334665, type: 3}
+  m_Name: SWORD_DEMON_LORD
+  m_EditorClassIdentifier: 
+  id: 30
+  damage: 30
+  isHand: 1
+  price: 8888
+  weaponName: SWORD_DEMON_LORD
+  weaponModel: {fileID: 4790947524096647320, guid: 3325c6eae4adc3e409158b7e4e23561f, type: 3}
+  controller: {fileID: 9100000, guid: 9d187b14afc299842bfedc6a50ae2031, type: 2}
+  icon: {fileID: 21300000, guid: fae1a75cbf640414ca27a492d8fb8564, type: 3}

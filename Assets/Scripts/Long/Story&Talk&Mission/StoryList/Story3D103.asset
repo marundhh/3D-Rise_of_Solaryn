@@ -14,25 +14,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockID: Story3D103
   actions:
-  - action: 2
-    prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}
-    count: 5
-    targetID: Sienna
-    position: {x: -290, y: -1.5, z: 10}
-    missionRaw: {fileID: 0}
-    relationShipEff: 0
-    dialogID: 
-    storyID: 
-    waitTime: 0
-    Notification: 
-  - action: 3
+  - action: 12
     prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}
     count: 5
     targetID: Sienna
     position: {x: -500, y: 5, z: 2526}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 0e137d7fe56fabd46b3daf7b1e2d9fbc, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 0
     Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 11400000, guid: 53f09ed447586c842be630cb0c171d3a, type: 2}
+  - action: 2
+    prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}
+    count: 5
+    targetID: Sienna
+    position: {x: -290, y: -1.5, z: 10}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+  - action: 3
+    prefabs: {fileID: 897951710766222860, guid: 7f59bdd37338f394ebcdf97783fab347, type: 3}
+    count: 5
+    targetID: Sienna
+    position: {x: -500, y: 5, z: 2526}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: 0e137d7fe56fabd46b3daf7b1e2d9fbc, type: 2}
+    relationShipEff: 0
+    dialogID: 
+    storyID: 
+    waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}

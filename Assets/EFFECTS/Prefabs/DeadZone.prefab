@@ -14820,6 +14820,7 @@ GameObject:
   - component: {fileID: 251521929328373739}
   - component: {fileID: 251521929328373738}
   - component: {fileID: 251521929328373733}
+  - component: {fileID: 1232454223538350526}
   m_Layer: 0
   m_Name: DeadZone
   m_TagString: Untagged
@@ -19729,6 +19730,23 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1232454223538350526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251521929328373732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99eb26a3e2671a449a8a45cca95ae44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectObject: {fileID: 251521929328373732}
+  enemyPrefab: {fileID: 7902868643382023677, guid: 907dbcfc16ff6764fa2db1501addef46, type: 3}
+  numberOfEnemies: 5
+  verticalSpacing: 1.5
+  spawnDelay: 0.2
 --- !u!1 &251521929739467202
 GameObject:
   m_ObjectHideFlags: 0

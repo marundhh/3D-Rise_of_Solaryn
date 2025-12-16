@@ -30,19 +30,33 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         image.raycastTarget = true;
         transform.SetParent(parentAfterDrag);
     }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (itemData != null)
         {
-            TooltipSystem.Instance.Show(itemData.itemName, itemData.description);
+
+            string description = $"{itemData.description}\nPrice: {itemData.price}";
+            TooltipSystem.Instance.Show(itemData.itemName, description);
+        }
+        else if (weaponData != null)
+        {
+            string description = $"Damage: {weaponData.damage}\nPrice: {weaponData.price}";
+            TooltipSystem.Instance.Show(weaponData.weaponName, description);
         }
     }
 
 
-
     public void OnPointerExit(PointerEventData eventData)
     {
-        TooltipSystem.Instance.Hide(); // <-- lỗi chỗ này cũng dùng Show
+        TooltipSystem.Instance.Hide();
     }
 
+    private void OnDestroy()
+    {
+        if (TooltipSystem.Instance != null)
+        {
+            TooltipSystem.Instance.Hide();
+        }
+    }
 }

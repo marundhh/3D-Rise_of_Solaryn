@@ -17,8 +17,8 @@ MonoBehaviour:
   tile: Defeat boss
   description: 
   type: Minotaur
-  count: 0
+  count: 1
   loacation: 
   rewardGold: 0
   rewardExp: 0
-  storyID: 
+  storyID: Story4D302

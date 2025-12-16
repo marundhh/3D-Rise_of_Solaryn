@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6046546933132564757}
   - component: {fileID: 2406258871660871477}
   - component: {fileID: 5650308400806333787}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4950,7 +4950,7 @@ GameObject:
   - component: {fileID: 8710279431862554443}
   - component: {fileID: 8242201962650098219}
   - component: {fileID: 7484541522341646395}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9869,7 +9869,7 @@ GameObject:
   - component: {fileID: 3513555665276967138}
   - component: {fileID: 564593843017938468}
   - component: {fileID: 8850097983355906185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SwordAuraEFF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14739,7 +14739,7 @@ GameObject:
   - component: {fileID: 3662818448795745168}
   - component: {fileID: 1853004379932893705}
   - component: {fileID: 7812285124002255563}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ParticleAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19660,22 +19660,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Sword_03
       objectReference: {fileID: 0}
-    - target: {fileID: 1564280927108058, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714356417086856, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714356417086856, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714356417086856, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4714356417086856, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19716,36 +19700,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 64874188254330650, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1564280927108058, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2538940789634842858}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
---- !u!1 &7162850110952351437 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1564280927108058, guid: f31ae95d248e8854bb5499cf38303350, type: 3}
-  m_PrefabInstance: {fileID: 7161286963907239191}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2538940789634842858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162850110952351437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac4783bd7aa714b8adc8116a499c27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
 --- !u!4 &7166000116590336159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4714356417086856, guid: f31ae95d248e8854bb5499cf38303350, type: 3}

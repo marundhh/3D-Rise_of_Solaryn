@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager Instance { get; private set; }
@@ -10,18 +12,29 @@ public class GameStateManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    public void StartGame()
     {
-       //ResetAll();
-
-      LoadGame();
+        Debug.Log("Starting game ..." + PlayerData.instance.isNewGame);
+        if (!PlayerData.instance.isNewGame)
+        {
+            LoadGame();
+            Debug.Log("Loading game ...");
+        }
+        else
+        {
+            NewGame();
+            PlayerData.instance.isNewGame = false;
+            Debug.Log("New game ...");
+        }
     }
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F5))
         {
             ResetAll();
-        }
+        } 
     }
     public void SaveGame()
     {
@@ -30,18 +43,21 @@ public class GameStateManager : MonoBehaviour
         RelationshipManager.Instance?.SaveRelationship();
         MissionManager.Instance?.SaveMissionsToFile();
         StoryExecutor.Instance?.SaveStoryState();
-        GameFlowManager.Instance?.SaveStoryBlockID();
+        GameFlowManager.Instance?.SaveStoryBlockID();   
+    }
+
+    public void NewGame()
+    {
+       GameFlowManager.Instance?.NewGame();
     }
 
     public void LoadGame()
     {
-        // nếu các Manager tự load ở Awake thì không cần gọi
         DialogueBlockNpcHandler.Instance?.LoadDialogueProgress();
         RelationshipManager.Instance?.LoadRelationship();
         MissionManager.Instance?.LoadMissionsFromFile();
-        StoryExecutor.Instance?.RestoreStoryState();
+        StoryExecutor.Instance?.LoadStoryState();
         GameFlowManager.Instance?.LoadStoryBlockID();
-
     }
 
     public void ResetAll()
@@ -51,6 +67,5 @@ public class GameStateManager : MonoBehaviour
         MissionManager.Instance?.ClearAllMissions();
         StoryExecutor.Instance?.ClearStoryState();
         GameFlowManager.Instance?.ResetStoryBlockID();
-        SaveGame();
     }
 }

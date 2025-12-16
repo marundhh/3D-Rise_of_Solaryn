@@ -34,6 +34,7 @@ public class RuntimeOverdrive : RuntimeSkillBase
         audioSource = user.GetComponentInChildren<AudioSource>();
         skillEffect = data.skillEffect;
         stats = user.transform.parent.GetComponent<PlayerStats>();
+        skillController.skillIcon[1].sprite = skillData.SkillIcon;
     }
 
     public void PlaySoundEff()
@@ -68,6 +69,8 @@ public class RuntimeOverdrive : RuntimeSkillBase
 
     public override async UniTask Activate()
     {
+        if (!ManaCostProces()) return;
+
         isSpinning = true;
         cancelTokenSource = new CancellationTokenSource();
 

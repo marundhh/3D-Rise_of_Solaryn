@@ -38,7 +38,7 @@ public class SpecCameraSelection : MonoBehaviour
         Select.interactable = true;
         characterSelection = character;
         targetLookAt = character.transform;
-        targetFOV = 30;
+        targetFOV = 35;
     }
 
     public void ZomeOutCharacter()
@@ -50,10 +50,7 @@ public class SpecCameraSelection : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ZomeOutCharacter();
-        }
+       
 
         virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(
             virtualCamera.m_Lens.FieldOfView,

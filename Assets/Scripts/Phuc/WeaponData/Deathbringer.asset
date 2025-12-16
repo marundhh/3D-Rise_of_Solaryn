@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6311e89e06ea88642bb5f4165b334665, type: 3}
+  m_Name: Deathbringer
+  m_EditorClassIdentifier: 
+  id: 31
+  damage: 80
+  isHand: 1
+  price: 10000
+  weaponName: Deathbringer
+  weaponModel: {fileID: 4562334772394477897, guid: 60744bd9a2b47d0449d942c4f06983b3, type: 3}
+  controller: {fileID: 9100000, guid: 9d187b14afc299842bfedc6a50ae2031, type: 2}
+  icon: {fileID: 21300000, guid: ebbb928c64c3aa8498c481465d2b0766, type: 3}

@@ -10,6 +10,19 @@ public class WeaponManager : MonoBehaviour
 
     private GameObject spawnedWeapon;
 
+    public static WeaponManager instance;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         InitData();

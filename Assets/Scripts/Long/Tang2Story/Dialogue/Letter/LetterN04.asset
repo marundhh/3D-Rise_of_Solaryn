@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: LetterN04
+  m_EditorClassIdentifier: 
+  dialogueID: start
+  lines:
+  - "\u201CIt all ended when the goddess Luminara sacrificed herself to seal everything
+    away.\u201D"
+  - "\u201CBut the seal will weaken over time.\u201D"
+  - "\u201CEnergy from the arcane stones will strengthen the seal.\u201D"
+  - "\u201CWe cannot live forever to sustain the seal\u2019s power.\u201D"
+  - "\u201CThen why don\u2019t we use this very body... to pass on hope to the next
+    generation?\u201D"
+  - "\u201CAt the very least, I\u2019ll hold on for a thousand years.\u201D"
+  - "\u201CAnd I\u2019ll make it a thousand and one.\u201D"
+  - "\u201CIn the name of Luminara, the Divine.\u201D"
+  - You finally came, huh?
+  - I believe you understand what you need to do.
+  - I will give you the holy eye, you will see them.
+  lines2: []
+  choices:
+  - text: So this is all that happened back then?
+    nextDialogueId: 
+    storyBlockID: Story2D401
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - (Riser) Saloryn's Great War with the Tower
+    - (Riser) All is well until the traitor comes along.
+    - (Riser) The end result is that the goddess Luminara sacrificed herself to seal
+      them away.
+    - (Riser) The surviving high priests and mages used their bodies to maintain
+      energy for the sealing magic circle.
+    - (Riser) Meaning if I supply energy to the magic circle, I can seal this tower.
+    - (Riser) And most of all, I can feel the magic stone.
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

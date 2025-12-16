@@ -19,48 +19,112 @@ MonoBehaviour:
     count: 0
     targetID: Sienna
     position: {x: -40, y: -3.4, z: 27}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 1
     prefabs: {fileID: 0}
     count: 0
     targetID: PotionShop
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 3
     prefabs: {fileID: 0}
     count: 0
     targetID: Player
     position: {x: 1, y: 0, z: -2}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: a4612a31da12374419cc755228fc0e3e, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 5
     prefabs: {fileID: 0}
     count: 0
     targetID: Sienna
     position: {x: -43, y: -2.9, z: 22}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 2
     dialogID: 
     storyID: 
     waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 6
     prefabs: {fileID: 0}
     count: 0
     targetID: Sienna
     position: {x: -43, y: -2.9, z: 22}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 2
     dialogID: Good
     storyID: 
     waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
+  - action: 14
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: Sienna
+    position: {x: -43, y: -2.9, z: 22}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 0}
+    relationShipEff: 2
+    dialogID: Good
+    storyID: 
+    waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 500

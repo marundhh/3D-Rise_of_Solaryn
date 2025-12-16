@@ -15,7 +15,18 @@ public class TriggerStory : MonoBehaviour
             if (!string.IsNullOrEmpty(startStoryBlockID))
             {
                 await GameFlowManager.Instance.CallSetupStoryWithOutSave(startStoryBlockID);
-                GetComponent<TwoCharacterDialogue>().StartDialogue();
+                // Check if the component TwoCharacterDialogue exists
+                try
+                {
+                    if (TryGetComponent<TwoCharacterDialogue>(out var twoDialogue) && twoDialogue)
+                    {
+                        twoDialogue.StartDialogue();
+                    }
+                } catch (System.Exception ex)
+                {
+                    Debug.Log($"Error starting dialogue: {ex.Message}");
+                }
+
                 return;
             }
             else

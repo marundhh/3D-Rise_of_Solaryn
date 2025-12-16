@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8760649660837044135}
   - component: {fileID: 9028979259920930791}
   - component: {fileID: 5051490560718600997}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.29319787, a: 1}
+  m_Color: {r: 1, g: 0.07898483, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1236367405435618517}
   - component: {fileID: 4377614369736100254}
   - component: {fileID: 941854137866318850}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 1405594075454274267}
   - component: {fileID: 8059169027040866321}
   - component: {fileID: 9179544659173898414}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: NameEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,15 +343,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05dd2e86dee1d5943a581855ace37232, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -220.85606
+      value: 29.046051
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05dd2e86dee1d5943a581855ace37232, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.24151039
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05dd2e86dee1d5943a581855ace37232, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2508.6685
+      value: 13.501811
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05dd2e86dee1d5943a581855ace37232, type: 3}
       propertyPath: m_LocalRotation.w
@@ -821,8 +821,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 7902868643382023677}
   m_Enabled: 1
   m_AgentTypeID: -1923039037
-  m_Radius: 0.2
-  m_Speed: 1.5
+  m_Radius: 0.53
+  m_Speed: 6
   m_Acceleration: 7
   avoidancePriority: 50
   m_AngularSpeed: 10000
@@ -869,10 +869,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1aaa81109218a42b423346176231f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 40
   maxArmor: 0
   maxMana: 0
-  maxPhysicalDamage: 5
+  maxPhysicalDamage: 2
   maxMagicDamage: 0
   maxCooldownReduction: 0
   maxMoveSpeed: 0
@@ -890,10 +890,14 @@ MonoBehaviour:
   isInvincible: 0
   isDead: 0
   ten: {fileID: 4576683969964217898}
-  dodgeChance: 80
+  expReward: 6
+  dodgeChance: 10
   healthBar: {fileID: 5051490560718600997}
   itemDropPrefab: {fileID: 537869915164035479, guid: ec651b362d84ad441b4813a44f76de5a, type: 3}
   dropCount: 1
+  dodgeTextPrefab: {fileID: 7273328859809013108, guid: 25970cb3f1cacd84ba172f0624942439, type: 3}
+  floatingTextPrefab: {fileID: 7273328859809013108, guid: 55d3da6e5d41d2845807a531927998de, type: 3}
+  textSpawnPoint: {fileID: 7415020125015478087}
 --- !u!54 &3698861682304590459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -940,7 +944,7 @@ MonoBehaviour:
   maxWaitTime: 7
   minSitTime: 3
   maxSitTime: 7
-  detectRange: 12
+  detectRange: 20
   walkCounter: 0
   waitCounter: 0
   sitTime: 10
@@ -958,9 +962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9c233305d39924683097fa5f965f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  attackRange: 2
-  runRange: 12
+  attackRange: 3.5
+  runRange: 20
   retreatHealthThreshold: 0.2
   retreatSpeed: 2
   retreatStopDistance: 15
@@ -969,7 +972,7 @@ MonoBehaviour:
   fireballSpawnPoints: []
   fireballArcHeight: 0
   fireballGravity: {x: 0, y: 0, z: 0}
-  weaponCollider: {fileID: 0}
+  weaponCollider: {fileID: 7430033449892843526}
 --- !u!114 &2739339335636561744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,6 +998,10 @@ PrefabInstance:
     - target: {fileID: 1331812121950404, guid: 9f05ef6670f23e6489ec38160b33d1e4, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Sword_14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331812121950404, guid: 9f05ef6670f23e6489ec38160b33d1e4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4796062128804838, guid: 9f05ef6670f23e6489ec38160b33d1e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1048,6 +1055,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8537605612059854234}
   m_SourcePrefab: {fileID: 100100000, guid: 9f05ef6670f23e6489ec38160b33d1e4, type: 3}
+--- !u!65 &7430033449892843526 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 1913518447415802506, guid: 9f05ef6670f23e6489ec38160b33d1e4, type: 3}
+  m_PrefabInstance: {fileID: 9048548508050795148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9044335343599368554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4796062128804838, guid: 9f05ef6670f23e6489ec38160b33d1e4, type: 3}
@@ -1070,3 +1082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a5ae499e0311846a3673ee358bd4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodEffectPrefab: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: 018b9054ac7a99249922d4b1ae11dfc5, type: 3}
+  knockbackForce: 0
+  knockbackForceMinion: 5
+  knockbackAngleY: 0

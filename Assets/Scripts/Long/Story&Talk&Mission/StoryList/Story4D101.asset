@@ -14,47 +14,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockID: Story4D101
   actions:
-  - action: 8
+  - action: 9
     prefabs: {fileID: 0}
     count: 0
     targetID: 
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 1
     Notification: Final Quest from Rise Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 3
     prefabs: {fileID: 0}
     count: 0
     targetID: 
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: a718d3e24bf0f2644944465ec1f2e6d4, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 2
     Notification: All enemies are defeat
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 2
     prefabs: {fileID: 0}
     count: 0
     targetID: Sienna
     position: {x: -397, y: -3.5, z: -49}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: a718d3e24bf0f2644944465ec1f2e6d4, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 2
     Notification: All enemies are defeat
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 6
     prefabs: {fileID: 0}
     count: 0
     targetID: Sienna
     position: {x: -397, y: -3.5, z: -49}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: a718d3e24bf0f2644944465ec1f2e6d4, type: 2}
     relationShipEff: 0
     dialogID: Gloomwood01
     storyID: 
     waitTime: 2
     Notification: All enemies are defeat
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}

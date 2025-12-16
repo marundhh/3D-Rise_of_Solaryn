@@ -57,7 +57,7 @@ MonoBehaviour:
     missionRaw: {fileID: 0}
     relationShipEff: 0
     setFlag: 
-  - text: "I\u2019ll cover her cost. How much is it?"
+  - text: "I\u2019ll cover her cost. How much is it? (-500 Lumin)"
     nextDialogueId: 
     storyBlockID: Story2D204
     playNextDialogueAutomatically: 0

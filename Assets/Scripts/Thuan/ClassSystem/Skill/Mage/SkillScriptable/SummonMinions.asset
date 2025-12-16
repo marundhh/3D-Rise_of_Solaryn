@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c7fd9b2b9ddee4286a90e47ad0fa07, type: 3}
+  m_Name: SummonMinions
+  m_EditorClassIdentifier: 
+  skillName: SummonMinions
+  skillDescription: SummonMinions
+  cooldown: 15
+  duration: 0
+  manaCost: 10
+  skillIcon: {fileID: 21300000, guid: ba59490740eb51d41b9c3363c49ef4d9, type: 3}
+  skillSoundEff: {fileID: 8300000, guid: d949b4f3ea75965469a2f8a852900f1a, type: 3}
+  skillEffect: {fileID: 3872322754510572922, guid: 291a5ef6be51ac0449808a5d54b069ba, type: 3}
+  summonCount: 3
+  maxMinions: 9
+  minionPrefab: {fileID: 7902868643382023677, guid: 09609f11b7f88e64c95eb19821918efb, type: 3}
+  summonRadius: 2
+  minionLifetime: 120

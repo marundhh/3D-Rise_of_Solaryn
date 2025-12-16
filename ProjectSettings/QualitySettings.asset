@@ -22,14 +22,14 @@ QualitySettings:
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
     anisotropicTextures: 0
-    antiAliasing: 0
+    antiAliasing: 2
     softParticles: 0
     softVegetation: 0
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
     useLegacyDetailDistribution: 1
     vSyncCount: 0
-    realtimeGICPUUsage: 25
+    realtimeGICPUUsage: 75
     lodBias: 0.4
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -44,7 +44,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: a53e395cb2e275841b82747613002b9e, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: 30e21c4188f0ff44ab943dc588cebcb7, type: 2}
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1

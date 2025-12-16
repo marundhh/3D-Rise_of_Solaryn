@@ -20,6 +20,7 @@ public class StoryManager : MonoBehaviour
 
         foreach (var block in storyBlocks)
         {
+          //  Debug.Log("Id:" + block.blockID);
             if (!string.IsNullOrEmpty(block.blockID))
                 blockMap[block.blockID] = block;
         }

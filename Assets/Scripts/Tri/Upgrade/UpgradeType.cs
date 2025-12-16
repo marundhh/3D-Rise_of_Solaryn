@@ -1,4 +1,4 @@
 public enum UpgradeType
 {
-    MaxHP, Armor, PhysicalDamage, MagicDamage, CooldownReduction, MoveSpeed, AttackSpeed
+    MaxHP, Armor, Mana, PhysicalDamage, MagicDamage, CooldownReduction, MoveSpeed, AttackSpeed, AttackRange
 }

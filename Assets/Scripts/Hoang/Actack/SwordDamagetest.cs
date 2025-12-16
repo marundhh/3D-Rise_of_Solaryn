@@ -13,7 +13,7 @@ public class SwordDamagetest : MonoBehaviour
             EnemyStats enemyStats = other.GetComponent<EnemyStats>();
             if (enemyStats != null)
             {
-                enemyStats.TakeDamage(damageAmount);
+                enemyStats.TakeDamage(PlayerStats.instance.currentPhysicalDamage);
             }
         }
     }

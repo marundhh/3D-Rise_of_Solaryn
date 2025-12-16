@@ -17,4 +17,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2283e1e81273ea84d9993d5f48d83a5e, type: 3}
   value: 20
   description: Heal 20 health points.
+  isStackable: 1
+  price: 5
   itemType: 0

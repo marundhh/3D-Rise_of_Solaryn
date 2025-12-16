@@ -18,13 +18,14 @@ MonoBehaviour:
   - Oh you are new? So what do you want, Riser?
   lines2: []
   choices:
-  - text: " I\u2019ve got 1000 Lumin. What can I buy?"
+  - text: "I\u2019ve got 1000 Lumin. What can I buy?"
     nextDialogueId: 001
     storyBlockID: 
     playNextDialogueAutomatically: 1
+    openMenuID: 
     choiceLines:
-    - "With 1000 Lumin, you should go for a starter set \u2013 those usually cost
-      500 Lumin."
+    - With 1000 Lumin, you should go for a starter set
+    - those usually cost 500 Lumin.
     missionRaw: {fileID: 0}
     relationShipEff: 0
     setFlag: 

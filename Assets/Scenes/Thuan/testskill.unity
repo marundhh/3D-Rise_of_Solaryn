@@ -9883,6 +9883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 3165343711861699377}
+  classManager: {fileID: 0}
   tranformSkillEffects: {fileID: 8177427860134205032}
   skillDataList:
   - {fileID: 11400000, guid: 407c02564f3ec1442931b02091f082d8, type: 2}
@@ -12502,7 +12503,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 1848752928017348981}
-  smoothTime: 0.15
+  defaultDistance: 6
+  height: 0
+  zoomSpeed: 2
+  minDistance: 2
+  maxDistance: 10
+  rotationSpeed: 120
+  rotateStep: 45
+  pitchAngle: 45
 --- !u!224 &5541871504440454864
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13648,7 +13656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c441488506cbf674688bcff28d3314fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimapCamera: {fileID: 0}
+  bigMapCamera: {fileID: 0}
   dragSpeed: 0.1
 --- !u!224 &6208781604182514956
 RectTransform:
@@ -18086,6 +18094,7 @@ MonoBehaviour:
   miniMapBig: {fileID: 981542599470084085}
   miniMapCamera: {fileID: 0}
   miniMapFollow: {fileID: 0}
+  dragController: {fileID: 0}
 --- !u!114 &8328202981657845138
 MonoBehaviour:
   m_ObjectHideFlags: 0

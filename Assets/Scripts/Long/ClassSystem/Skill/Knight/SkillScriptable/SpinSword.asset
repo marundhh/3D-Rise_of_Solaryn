@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: SpinSword
   skillDescription: 'Spin sword '
-  cooldown: 2
-  duration: 5
-  manaCost: 40
+  cooldown: 7
+  duration: 3
+  manaCost: 20
+  skillIcon: {fileID: 21300000, guid: 970286c87a203f44b907114ac87aecb6, type: 3}
   skillSoundEff: {fileID: 8300000, guid: 3c00c103918b80f4f9c840743b64bd2b, type: 3}
   skillEffect: {fileID: 4884950385554036699, guid: 653618f798131cd478a178c673bcbfd1, type: 3}
   damageMultiplier: 0.7

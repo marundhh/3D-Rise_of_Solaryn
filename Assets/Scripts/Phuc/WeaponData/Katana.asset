@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6311e89e06ea88642bb5f4165b334665, type: 3}
+  m_Name: Katana
+  m_EditorClassIdentifier: 
+  id: 37
+  damage: 60
+  isHand: 1
+  price: 38540
+  weaponName: Katana
+  weaponModel: {fileID: 7117265707221434194, guid: 3be63b39587c62841ac07ae8544b94d5, type: 3}
+  controller: {fileID: 9100000, guid: 9d187b14afc299842bfedc6a50ae2031, type: 2}
+  icon: {fileID: 21300000, guid: d4f9d1371c57860408c5d725b1d09ffa, type: 3}

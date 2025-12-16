@@ -10,6 +10,7 @@ public class DialogueChoice
     public string nextDialogueId = null;
     public string storyBlockID;
     public bool playNextDialogueAutomatically = false;
+    public string openMenuID;
     [TextArea]
     public List<string> choiceLines;
     public MissionRaw missionRaw;

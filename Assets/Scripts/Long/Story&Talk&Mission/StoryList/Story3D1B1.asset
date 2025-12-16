@@ -19,25 +19,49 @@ MonoBehaviour:
     count: 0
     targetID: 
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
     relationShipEff: 0
     dialogID: 
+    storyID: 
     waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 0
     prefabs: {fileID: 0}
     count: 0
     targetID: Fields
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
     relationShipEff: 0
     dialogID: 
+    storyID: 
     waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 0
     prefabs: {fileID: 0}
     count: 0
     targetID: Farmer01
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
     relationShipEff: 0
     dialogID: 
+    storyID: 
     waitTime: 0
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}

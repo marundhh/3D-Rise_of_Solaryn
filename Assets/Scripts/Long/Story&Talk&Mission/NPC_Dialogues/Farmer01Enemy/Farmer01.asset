@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131e69c4744afea43acc903e3b4feb97, type: 3}
   m_Name: Farmer01
   m_EditorClassIdentifier: 
-  npcName: Farmer01
+  npcName: Farmer
   allDialogues:
   - {fileID: 11400000, guid: 7275de5610ae70e40a08c9f7c9c1ffbc, type: 2}

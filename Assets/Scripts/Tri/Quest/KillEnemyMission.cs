@@ -11,13 +11,14 @@ public class KillEnemyMission : Mission
     public int RequiredKillCount => requiredKillCount;
     public int CurrentKillCount => currentKillCount;
 
-    public KillEnemyMission(int id,string title, string description, string enemyType, int count, Transform lacation, int rewardGold, int rewardExp, string storyID)
+    public KillEnemyMission(int id,string title, string description, string enemyType, int count, Transform lacation, int rewardGold, int rewardExp, string storyID, int currentCount)
     {
         missionID = id;
         Title = title;
         Description = description;
         targetEnemyType = enemyType;
         requiredKillCount = count;
+        currentKillCount = currentCount;
         currentKillCount = 0;
         targetPoint = lacation;
         playerPoint = GameObject.FindWithTag("Player").transform;
@@ -33,19 +34,16 @@ public class KillEnemyMission : Mission
         if (e is EnemyKilledEvent ek && ek.enemyType == targetEnemyType)
         {
             currentKillCount++;
+           // GameStateManager.Instance.SaveGame(); // Save game state after each kill
             if (currentKillCount >= requiredKillCount)
             {
-                IsCompleted = true;
-                if (!string.IsNullOrEmpty(storyID))
-                    CallSetupStory();
+                OnMissionComplete();
             }      
         }
     }
 
-    public async void CallSetupStory()
-    {
-        await GameFlowManager.Instance.CallSetupStoryWithOutSave(storyID);
-    }
+
+
 
     public override string GetProgressText()
     {

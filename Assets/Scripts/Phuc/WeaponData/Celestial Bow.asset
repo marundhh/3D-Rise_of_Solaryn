@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6311e89e06ea88642bb5f4165b334665, type: 3}
+  m_Name: Celestial Bow
+  m_EditorClassIdentifier: 
+  id: 28
+  damage: 20
+  isHand: 1
+  price: 1700
+  weaponName: Celestial Bow
+  weaponModel: {fileID: 5768264336169482359, guid: 7ff1f112a7f19724da1a168a2bf3887f, type: 3}
+  controller: {fileID: 9100000, guid: 34e94207b87390a4dae5b4a8f9b9bbb5, type: 2}
+  icon: {fileID: 21300000, guid: 060364f7438c39346be0d6b45f96c40f, type: 3}

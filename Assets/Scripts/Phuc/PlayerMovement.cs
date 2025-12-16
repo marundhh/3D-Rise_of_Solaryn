@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static bool isInputLocked = false;
+
+
     private float currentMoveSpeed;
     private float sprintMultiplier = 1.5f;
 
@@ -20,8 +23,13 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canDodge = true;
 
+    private bool isWalkingSoundPlaying = false;
+    private bool isRunningSoundPlaying = false;
+
     private void Update()
     {
+        if (isInputLocked || PlayerState.instance.GetCurrentState() == PlayerState.state.Attack) return;
+
         currentMoveSpeed = PlayerStats.instance.currentMoveSpeed;
 
         if (AnimationManager.instance.CheckRollingComplete())
@@ -37,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerState.instance.SetCurrentState(PlayerState.state.Roll);
         canDodge = false;
+
+        AudioManager.Instance.PlayRollSFX();
 
         Vector3 dodgeDirection = moveDirection.magnitude > 0.1f ? moveDirection.normalized : transform.forward;
         float dodgeTime = dodgeDistance / dodgeSpeed;
@@ -75,34 +85,74 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        float moveX = Input.GetAxis("Horizontal"); // Lấy giá trị A/D
+        float moveZ = Input.GetAxis("Vertical");   // Lấy giá trị W/S
 
-        Vector3 inputDirection = new Vector3(moveX, 0f, moveZ).normalized;
+        // Lấy hướng forward (trước) và right (phải) của camera
+        Vector3 camForward = Camera.main.transform.forward;
+        Vector3 camRight = Camera.main.transform.right;
 
+        // Bỏ thành phần Y để không làm nhân vật bị nghiêng khi camera nhìn từ trên xuống
+        camForward.y = 0f;
+        camRight.y = 0f;
+
+        // Chuẩn hóa vector để đảm bảo độ dài = 1
+        camForward.Normalize();
+        camRight.Normalize();
+
+        // Tính hướng di chuyển dựa trên input và hướng camera
+        Vector3 inputDirection = camForward * moveZ + camRight * moveX;
+        inputDirection.Normalize(); // Đảm bảo tổng vector có độ dài = 1
+
+        
+
+        // Nếu đang nhấn Shift thì chạy nhanh hơn
         float speed = Input.GetKey(KeyCode.LeftShift) ? currentMoveSpeed * sprintMultiplier : currentMoveSpeed;
 
+        // Áp dụng tốc độ cho hướng di chuyển
         moveDirection = inputDirection * speed;
 
         if (inputDirection.magnitude > 0.1f)
         {
+            // Di chuyển nhân vật
             characterController.Move(moveDirection * Time.deltaTime);
 
+            // Quay mặt nhân vật về hướng đang di chuyển
             Quaternion toRotation = Quaternion.LookRotation(inputDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 700 * Time.deltaTime);
 
+            // Cập nhật trạng thái nhân vật theo hành vi
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 PlayerState.instance.SetCurrentState(PlayerState.state.Run);
+
+                if (!isRunningSoundPlaying)
+                {
+                    AudioManager.Instance.PlayRunSFX();
+                    isRunningSoundPlaying = true;
+                    isWalkingSoundPlaying = false;
+                }
             }
             else
             {
                 PlayerState.instance.SetCurrentState(PlayerState.state.Walk);
+
+                if (!isWalkingSoundPlaying)
+                {
+                    AudioManager.Instance.PlayWalkSFX();
+                    isWalkingSoundPlaying = true;
+                    isRunningSoundPlaying = false;
+                }
             }
         }
         else
         {
-            PlayerState.instance.SetCurrentState(PlayerState.state.Idle);
+            PlayerState.instance.SetCurrentState(PlayerState.state.Idle); // Không di chuyển
+
+            AudioManager.Instance.StopFootstepSFX();
+            //AudioManager.Instance.StopFootstepSFX();
+            isWalkingSoundPlaying = false;
+            isRunningSoundPlaying = false;
         }
     }
 

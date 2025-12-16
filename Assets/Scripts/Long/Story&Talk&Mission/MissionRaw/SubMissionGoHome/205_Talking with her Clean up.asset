@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionType: 2
   id: 205
-  tile: Help Sienna lean up
+  tile: Help Sienna Clean up
   description: 
   type: Sienna
   count: 0

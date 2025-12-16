@@ -11,7 +11,7 @@ using UnityEngine.Rendering;
     public enum ClassType
     {
         Knight,
-        Wizard, //Sửa lại chính tả cho đúng
+        Mage, 
         Archer
     }
 

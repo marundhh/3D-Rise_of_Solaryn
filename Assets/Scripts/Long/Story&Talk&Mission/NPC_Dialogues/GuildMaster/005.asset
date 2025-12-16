@@ -23,7 +23,8 @@ MonoBehaviour:
     nextDialogueId: 006
     storyBlockID: Story3D401
     playNextDialogueAutomatically: 0
-    choiceLines: []
+    choiceLines:
+    - Good bye!
     missionRaw: {fileID: 0}
     relationShipEff: 0
     setFlag: 

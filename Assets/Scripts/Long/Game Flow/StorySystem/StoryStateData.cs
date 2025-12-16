@@ -13,4 +13,5 @@ public class MovedObjectData
 {
     public string objectID;
     public Vector3 position;
+    public Vector3 rotation;
 }

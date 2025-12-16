@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 983632152129335434}
   - component: {fileID: 6200263614307327342}
   - component: {fileID: 2129981139124994964}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 7192666150757468457}
   - component: {fileID: 3017470894930423673}
   - component: {fileID: 4904145419964118703}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: NameEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 6146419929538813442}
   - component: {fileID: 8759507839295661958}
   - component: {fileID: 7408345848964121433}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.29319787, a: 1}
+  m_Color: {r: 1, g: 0.07817815, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -973,11 +973,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1aaa81109218a42b423346176231f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 20
   maxArmor: 0
   maxMana: 0
   maxPhysicalDamage: 1
-  maxMagicDamage: 20
+  maxMagicDamage: 1
   maxCooldownReduction: 0
   maxMoveSpeed: 0
   maxAttackSpeed: 0
@@ -994,10 +994,14 @@ MonoBehaviour:
   isInvincible: 0
   isDead: 0
   ten: {fileID: 1547396538179758669}
-  dodgeChance: 80
+  expReward: 20
+  dodgeChance: 10
   healthBar: {fileID: 7408345848964121433}
   itemDropPrefab: {fileID: 7315838184225617648, guid: 876875b64493605498acfb12f829f0e7, type: 3}
   dropCount: 1
+  dodgeTextPrefab: {fileID: 7273328859809013108, guid: 25970cb3f1cacd84ba172f0624942439, type: 3}
+  floatingTextPrefab: {fileID: 7273328859809013108, guid: 55d3da6e5d41d2845807a531927998de, type: 3}
+  textSpawnPoint: {fileID: 5835975357375203765}
 --- !u!114 &5299299128434983464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,7 +1014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9c233305d39924683097fa5f965f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   attackRange: 10
   runRange: 12
   retreatHealthThreshold: 0.2
@@ -1035,7 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2d0995094b4c54b8055c0357777c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: f7544775891fc1f45bca307dd45ebee0, type: 2}
+  enemyData: {fileID: 11400000, guid: 9a4bd6894792dfb4db54c45e5736aa1b, type: 2}
   nameTextUI: {fileID: 4904145419964118703}
 --- !u!1 &3246487787899504786
 GameObject:

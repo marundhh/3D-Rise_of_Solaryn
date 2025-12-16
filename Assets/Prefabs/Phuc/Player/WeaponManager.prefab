@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e505bcd30a5df4a9f7cd73c678a783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedWeaponData: {fileID: 11400000, guid: 07665ae1f5dd0ee44812fdf8aa13739e, type: 2}
+  selectedWeaponData: {fileID: 11400000, guid: 1eb51d9ec8300154a918fff8fa958823, type: 2}
   model: {fileID: 0}

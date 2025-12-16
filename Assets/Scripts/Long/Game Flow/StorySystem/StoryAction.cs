@@ -12,6 +12,11 @@ public enum StoryAction
     StoryIDSetup,
     StoryIDSetupWithOutSave,
     Wait,
+    CameraSetup,
+    MoveObjectGobal,
+    playCutscene,
+    loadScene,
+    minusCoins,
 
 }
 

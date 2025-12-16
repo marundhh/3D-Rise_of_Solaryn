@@ -14,11 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockID: Story3D402
   actions:
-  - action: 8
+  - action: 14
+    prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
+    count: 5
+    targetID: Wall02
+    position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 11400000, guid: bf17901980bc2d54d991d1eda4356fa7, type: 2}
+    relationShipEff: 0
+    dialogID: 001
+    storyID: 
+    waitTime: 1
+    Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 100
+  - action: 9
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Sienna
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: d013bb76e52e3914a92daec6c8f4e171, type: 2}
     relationShipEff: 0
     dialogID: 
@@ -26,80 +46,143 @@ MonoBehaviour:
     waitTime: 3
     Notification: You fall asleep and are awakened in the middle of the night by
       an alarm. A surprise attack, you have to deal with it quickly.
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 0
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Story1
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 186dfaed6e4acb64b859d9303195b60c, type: 2}
     relationShipEff: 0
     dialogID: 001
     storyID: 
     waitTime: 1
     Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 1
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Origin01
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 186dfaed6e4acb64b859d9303195b60c, type: 2}
     relationShipEff: 0
     dialogID: 001
     storyID: 
     waitTime: 1
     Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 0
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: FallingHouseCenter
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: bf17901980bc2d54d991d1eda4356fa7, type: 2}
     relationShipEff: 0
     dialogID: 001
     storyID: 
     waitTime: 1
     Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 3
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: House7
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: bf17901980bc2d54d991d1eda4356fa7, type: 2}
     relationShipEff: 0
     dialogID: 001
     storyID: 
     waitTime: 1
     Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 0
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Door2
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: bf17901980bc2d54d991d1eda4356fa7, type: 2}
     relationShipEff: 0
     dialogID: 001
     storyID: 
     waitTime: 1
     Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 1
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Door
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: bf17901980bc2d54d991d1eda4356fa7, type: 2}
     relationShipEff: 0
     dialogID: 001
     storyID: 
     waitTime: 1
     Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0
   - action: 0
     prefabs: {fileID: 717646968610060910, guid: 0c839e052e0f8904a91a3be560bc66cb, type: 3}
     count: 5
     targetID: Wall02
     position: {x: -582, y: 5, z: 2425}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: bf17901980bc2d54d991d1eda4356fa7, type: 2}
     relationShipEff: 0
     dialogID: 001
     storyID: 
     waitTime: 1
     Notification: Everthing is fine, I should turn back to Guild
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0

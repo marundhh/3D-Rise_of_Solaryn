@@ -45,7 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 1848752928927326980}
-  smoothTime: 0.15
+  defaultDistance: 6
+  height: 0
+  zoomSpeed: 2
+  minDistance: 2
+  maxDistance: 10
+  rotationSpeed: 120
+  rotateStep: 45
+  pitchAngle: 45
 --- !u!1 &2101657332080801253
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8853471121307600335}
   - {fileID: 304212596197636157}
   - {fileID: 7833794666105126837}
   - {fileID: 4477192915580461518}
@@ -195,6 +203,7 @@ MonoBehaviour:
     m_Bits: 8
   firePoint: {fileID: 4477192915580461518}
   model: {fileID: 8178185005196398860}
+  audioSource: {fileID: 3204935313156010081}
 --- !u!114 &7371955320299600946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,11 +355,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 3165343710901348672}
+  classManager: {fileID: 0}
   tranformSkillEffects: {fileID: 8177427861052607513}
   skillDataList:
   - {fileID: 11400000, guid: df2539b7304e9c6439ee31f1a57c2859, type: 2}
   - {fileID: 11400000, guid: 9369e7b1992f1054c862b17cb7159137, type: 2}
   - {fileID: 11400000, guid: 818598215a9eafd42b7e484a2d2ca8a5, type: 2}
+  skillIcon: []
   skillIconCooldown:
   - {fileID: 0}
   - {fileID: 0}
@@ -373,6 +384,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1 &4419819266749486539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8853471121307600335}
+  m_Layer: 0
+  m_Name: CameraTaget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8853471121307600335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4419819266749486539}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1848752928927326980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4729281550210775872
 GameObject:
   m_ObjectHideFlags: 0

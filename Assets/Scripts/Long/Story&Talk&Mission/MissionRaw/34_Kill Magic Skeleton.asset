@@ -17,7 +17,7 @@ MonoBehaviour:
   tile: Kill SkeletonMage
   description: 
   type: SkeletonMage
-  count: 1
+  count: 3
   loacation: SkeletonMagic
   rewardGold: 0
   rewardExp: 300

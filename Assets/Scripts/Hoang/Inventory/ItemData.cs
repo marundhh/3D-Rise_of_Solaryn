@@ -8,7 +8,13 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public int value;
     public string description;
+
+    public bool isStackable = true;
+
+    public int price;
+
     public ItemType itemType;
+
     public enum ItemType
     {
         Health,

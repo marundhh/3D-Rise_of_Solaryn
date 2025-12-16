@@ -8,25 +8,26 @@ using UnityEngine;
 
 public class RuntimeIncreaseDamage : RuntimeSkillBase
 {
-    private SkillIncreaDamage data;
+    private SkillIncreaDamage skillData;
     private PlayerStats stats;
     private ParticleSystem skillEffect;
     public Transform tranform;
 
 
-    public override float Cooldown => data.Cooldown;
-    public override float ManaCost => data.ManaCost;
+    public override float Cooldown => skillData.Cooldown;
+    public override float ManaCost => skillData.ManaCost;
 
     public RuntimeIncreaseDamage(SkillIncreaDamage data, GameObject userObj, SkillController control)
     {
         skillController = control;
-        this.data = data;
+        this.skillData = data;
         user = userObj;
         //============================================//
         GetSwordAura().Forget();
         stats = user.transform.parent.GetComponent<PlayerStats>();
         animator = user.GetComponent<Animator>();
         audioSource = user.GetComponentInChildren<AudioSource>();
+        skillController.skillIcon[2].sprite = skillData.SkillIcon;
     }
 
     public async UniTask GetSwordAura()
@@ -43,12 +44,12 @@ public class RuntimeIncreaseDamage : RuntimeSkillBase
     public void PlaySoundEff()
     {
         audioSource.loop = false;
-        audioSource.clip = data?.skillSoundEff;
+        audioSource.clip = skillData?.skillSoundEff;
         audioSource?.Play();
     }
     public void StopSoundEff()
     {
-        audioSource.clip = data?.skillSoundEff;
+        audioSource.clip = skillData?.skillSoundEff;
         audioSource?.Stop();
     }
 
@@ -61,7 +62,11 @@ public class RuntimeIncreaseDamage : RuntimeSkillBase
        
         animator?.SetBool("Skill3", true);
         PlaySoundEff();
-        skillEffect?.Play();
+        if (skillEffect)
+        {
+            skillEffect?.Play();
+        }
+
 
         StartSkilFeature();
 
@@ -75,7 +80,7 @@ public class RuntimeIncreaseDamage : RuntimeSkillBase
 
         try
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(data.Duration), cancellationToken: cancelTokenSource.Token);
+            await UniTask.Delay(TimeSpan.FromSeconds(skillData.Duration), cancellationToken: cancelTokenSource.Token);
         }
         catch (OperationCanceledException) { }
            
@@ -83,7 +88,10 @@ public class RuntimeIncreaseDamage : RuntimeSkillBase
 
         isSpinning = false;
         StopSoundEff();
-        skillEffect?.Stop();
+        if (skillEffect)
+        {
+           skillEffect?.Stop();
+        }
         await StartCooldown();
     }
 
@@ -91,7 +99,7 @@ public class RuntimeIncreaseDamage : RuntimeSkillBase
     public void StartSkilFeature()
     {
         baseCurrentDamage = stats.currentPhysicalDamage;
-        stats.currentPhysicalDamage *= data.increaDamageMultiply;
+        stats.currentPhysicalDamage *= skillData.increaDamageMultiply;
         PlayerStats.instance =  stats;
     }
 

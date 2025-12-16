@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64dc7722c4284cb151200aa54f9d3, type: 3}
+  m_Name: Story3Final
+  m_EditorClassIdentifier: 
+  blockID: Story3Final
+  actions:
+  - action: 9
+    prefabs: {fileID: 0}
+    count: 0
+    targetID: FinalWall
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    dialogID: GloomwoodEnd
+    storyID: Story3Final
+    waitTime: 3
+    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
+    sceneName: 
+    minusCoins: 0

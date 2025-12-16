@@ -11,7 +11,8 @@ public class ClassManager : MonoBehaviour
     {
         InitData();
         InitModel();
-        selectedClassData.Init();   
+        selectedClassData.Init(this); // truyền MonoBehaviour hiện tại làm runner
+        DontDestroyOnLoad(gameObject);
     }
 
     private void InitData()

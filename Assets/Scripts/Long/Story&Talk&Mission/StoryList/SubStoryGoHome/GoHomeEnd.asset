@@ -19,53 +19,66 @@ MonoBehaviour:
     count: 0
     targetID: Sienna
     position: {x: -343, y: -1.5, z: -124.5}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 2
     Notification: After all she increased you that potion, she was very happy.
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 1
     prefabs: {fileID: 0}
     count: 0
     targetID: BrokenPorionRefin
     position: {x: -343, y: -1.5, z: -124.5}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 0
     Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 2
     prefabs: {fileID: 0}
     count: 0
     targetID: Sienna
     position: {x: 1000, y: -2.14, z: 1000}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 0
     Notification: 
-  - action: 3
-    prefabs: {fileID: 0}
-    count: 0
-    targetID: Sienna
-    position: {x: -343, y: -1.5, z: -124.5}
-    missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
-    relationShipEff: 0
-    dialogID: 
-    storyID: 
-    waitTime: 0
-    Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 7
     prefabs: {fileID: 0}
     count: 0
     targetID: Sienna
     position: {x: -343, y: -1.5, z: -124.5}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 2d3017fc76f4eb149a39ffcf67689eaa, type: 2}
     relationShipEff: 0
     dialogID: Branch3Good
-    storyID: Story3D1B1
+    storyID: Story3D1B2
     waitTime: 0
     Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}

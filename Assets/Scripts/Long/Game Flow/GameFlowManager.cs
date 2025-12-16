@@ -7,26 +7,22 @@ public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance;
     public string currentStoryBlockID;
-    
+
     private void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
     }
 
-    private async void Start()
-    {
-        await SceneTransitionManager.Instance.DoFadeTransition(async () =>
-        {
-            await StoryManager.Instance.PlayBlock(currentStoryBlockID);
-        });
-    }
+
 
     // none SceneTransition
-    public async Task SetupStory(string currentStoryBlockID)
+    public async Task CallSetupStoryNoneTransiton(string StoryBlockID)
     {
-        this.currentStoryBlockID = currentStoryBlockID;
+        if (!string.IsNullOrEmpty(StoryBlockID))
+            currentStoryBlockID = StoryBlockID;
         await StoryManager.Instance.PlayBlock(currentStoryBlockID);
+        GameStateManager.Instance.SaveGame();
     }
 
     private async void Update()
@@ -37,13 +33,18 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
+    public async void NewGame()
+    {
+        await CallSetupStory(currentStoryBlockID);
+    }
     //SceneTransition
     public async Task CallSetupStory(string StoryBlockID)
     {
         await SceneTransitionManager.Instance.DoFadeTransition(async () =>
         {
-            currentStoryBlockID = StoryBlockID;
-            await StoryManager.Instance.PlayBlock(StoryBlockID);
+            if (!string.IsNullOrEmpty(StoryBlockID))
+                currentStoryBlockID = StoryBlockID;
+            await StoryManager.Instance.PlayBlock(currentStoryBlockID);
             GameStateManager.Instance.SaveGame();
         });
     }
@@ -51,37 +52,36 @@ public class GameFlowManager : MonoBehaviour
     {
         await SceneTransitionManager.Instance.DoFadeTransition(async () =>
         {
-            currentStoryBlockID = StoryBlockID;
-            await StoryManager.Instance.PlayBlock(StoryBlockID);
+            if (!string.IsNullOrEmpty(StoryBlockID))
+                currentStoryBlockID = StoryBlockID;
+            await StoryManager.Instance.PlayBlock(currentStoryBlockID);
         });
     }
 
     public async void LoadStoryBlockID()
     {
-        if (PlayerPrefs.HasKey("CurrentStoryBlockID"))
+        string loadStoryID = await NpcData.instance.LoadCurrentStoryBlockAsync();
+
+        Debug.Log($"LoadStoryBlockID: {loadStoryID}");
+
+        if (!string.IsNullOrEmpty(loadStoryID))
         {
-            currentStoryBlockID = PlayerPrefs.GetString("CurrentStoryBlockID");
-            Debug.Log("Loading current story block ID: " + currentStoryBlockID);
+            Debug.Log("PlayerPrefs has CurrentStoryBlockID");
+            await CallSetupStory(loadStoryID);
+        }
+        else
+        {
+            Debug.Log("PlayerPrefs does not have CurrentStoryBlockID, starting new game");
             await CallSetupStory(currentStoryBlockID);
-        } else
-        {
-             Debug.Log("Play default ID");
-             await CallSetupStory(currentStoryBlockID);
         }
     }
-    public void ResetStoryBlockID()
+    public async Task ResetStoryBlockID()
     {
-        Debug.Log("Resetting current story block ID");
-        currentStoryBlockID = "Story1D101"; // Set to a default or initial block ID
-        PlayerPrefs.DeleteKey("CurrentStoryBlockID");
-        PlayerPrefs.Save();
+        currentStoryBlockID = string.Empty; // Set to a default or initial block ID
+        await NpcData.instance.SaveCurrentStoryBlockAsync(currentStoryBlockID);
     }
-    public void SaveStoryBlockID()
+    public async Task SaveStoryBlockID()
     {
-        string json = JsonUtility.ToJson(currentStoryBlockID);
-
-        Debug.Log("Saving current story block ID: " + currentStoryBlockID);
-        PlayerPrefs.SetString("CurrentStoryBlockID", currentStoryBlockID);
-        PlayerPrefs.Save();
+       await NpcData.instance.SaveCurrentStoryBlockAsync(currentStoryBlockID);
     }
 }

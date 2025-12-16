@@ -7,17 +7,19 @@ public class EnemyAttack : MonoBehaviour
     private NavMeshAgent nav;
     private Animator anim;
     private AnimatorStateInfo enemyInfo;
-    public GameObject player;
+    private Transform currentTarget;
     private float distance;
     private bool isAttacking = false;
+
+    [Header("Target Settings")]
     public float attackRange = 2.0f;
     public float runRange = 12.0f;
+
     private WaitForSeconds lookTime = new WaitForSeconds(2);
     private EnemyStats enemyStats;
 
-    // Retreat Settings
     [Header("Retreat Settings")]
-    public float retreatHealthThreshold = 0.2f; // 20%
+    public float retreatHealthThreshold = 0.2f;
     public float retreatSpeed = 2f;
     public float retreatStopDistance = 15f;
     public float healDelay = 3f;
@@ -26,14 +28,16 @@ public class EnemyAttack : MonoBehaviour
     private bool isHealing = false;
     private float originalSpeed;
 
-    // Fireball config
+    [Header("Fireball Settings")]
     [SerializeField] GameObject fireballPrefab;
     [SerializeField] Transform[] fireballSpawnPoints;
     [SerializeField] float fireballArcHeight = 5f;
     [SerializeField] Vector3 fireballGravity = Vector3.down * 10f;
 
-
     public Collider weaponCollider;
+
+    private bool battleReported = false;
+
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
@@ -47,16 +51,26 @@ public class EnemyAttack : MonoBehaviour
     {
         if (enemyStats == null || enemyStats.isDead) return;
 
-        if (player == null)
+        // 🔄 Luôn tìm mục tiêu gần nhất mỗi frame
+        currentTarget = FindNearestTarget(new string[] { "Player", "Minion" });
+        if (currentTarget == null)
         {
-            player = GameObject.FindGameObjectWithTag("Player");
-            if (player == null) return;
+            ReportExitCombat();
+            return;
         }
 
-        distance = Vector3.Distance(transform.position, player.transform.position);
+        distance = Vector3.Distance(transform.position, currentTarget.position);
 
-        // Retreat logic
-        if (!isHealing && enemyStats.MaxHealth / enemyStats.currentHealth <= retreatHealthThreshold)
+        if (distance <= runRange)
+        {
+            ReportEnterCombat();
+        }
+        else
+        {
+            ReportExitCombat();
+        }
+
+        if (!isHealing && ((float)enemyStats.currentHealth / enemyStats.MaxHealth) <= retreatHealthThreshold)
         {
             HandleRetreat();
             return;
@@ -71,7 +85,9 @@ public class EnemyAttack : MonoBehaviour
 
         if (distance < attackRange || distance > runRange)
         {
-            nav.isStopped = true;
+            if (nav.isOnNavMesh)
+                nav.isStopped = true;
+
 
             if (distance < attackRange && enemyInfo.IsTag("nonattack"))
             {
@@ -79,7 +95,7 @@ public class EnemyAttack : MonoBehaviour
                 {
                     isAttacking = true;
                     anim.SetTrigger("attack");
-                    StartCoroutine(LookAtPlayer());
+                    StartCoroutine(LookAtTarget());
                 }
             }
 
@@ -90,34 +106,64 @@ public class EnemyAttack : MonoBehaviour
         }
         else
         {
-            nav.isStopped = false;
-            nav.destination = player.transform.position;
+            if (nav.isOnNavMesh)
+            {
+                nav.isStopped = false;
+                nav.destination = currentTarget.position;
+            }
         }
+
+    }
+
+
+    Transform FindNearestTarget(string[] tags)
+    {
+        float shortestDistance = Mathf.Infinity;
+        Transform nearestTarget = null;
+
+        foreach (string tag in tags)
+        {
+            GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
+            foreach (GameObject t in targets)
+            {
+                float dist = Vector3.Distance(transform.position, t.transform.position);
+                if (dist < shortestDistance)
+                {
+                    shortestDistance = dist;
+                    nearestTarget = t.transform;
+                }
+            }
+        }
+
+        return nearestTarget;
     }
 
     void HandleRetreat()
     {
-
         isRetreating = true;
         nav.speed = retreatSpeed;
 
-        Vector3 retreatDir = (transform.position - player.transform.position).normalized;
+        Vector3 retreatDir = (transform.position - currentTarget.position).normalized;
         Vector3 retreatTarget = transform.position + retreatDir * 5f;
 
-        nav.isStopped = false;
-        nav.SetDestination(retreatTarget);
+        if (nav.isOnNavMesh)
+        {
+            nav.isStopped = false;
+            nav.SetDestination(retreatTarget);
+        }
+
         anim.SetBool("running", true);
 
-        // 👉 Hướng ngược lại player
         if (retreatDir != Vector3.zero)
         {
-            Quaternion backwardRotation = Quaternion.LookRotation(retreatDir); // hướng tránh xa player
+            Quaternion backwardRotation = Quaternion.LookRotation(retreatDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, backwardRotation, Time.deltaTime * 10f);
         }
 
         if (distance > retreatStopDistance)
         {
-            nav.isStopped = true;
+            if (nav.isOnNavMesh)
+                nav.isStopped = true;
             anim.SetBool("running", false);
             isRetreating = false;
             StartCoroutine(HealAfterDelay());
@@ -143,21 +189,23 @@ public class EnemyAttack : MonoBehaviour
         FireProjectile();
     }
 
-    IEnumerator LookAtPlayer()
+    IEnumerator LookAtTarget()
     {
         yield return lookTime;
-        transform.LookAt(player.transform);
+
+        if (currentTarget != null)
+            transform.LookAt(currentTarget.position);
     }
 
     void FireProjectile()
     {
-        if (fireballPrefab == null || fireballSpawnPoints.Length == 0 || player == null) return;
+        if (fireballPrefab == null || fireballSpawnPoints.Length == 0 || currentTarget == null) return;
 
         foreach (Transform spawnPoint in fireballSpawnPoints)
         {
             GameObject fireball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.identity);
             Vector3 start = spawnPoint.position;
-            Vector3 end = player.transform.position;
+            Vector3 end = currentTarget.position;
 
             float timeToTarget;
             Vector3 velocity = CalculateFireballVelocity(start, end, fireballArcHeight, out timeToTarget, fireballGravity);
@@ -165,12 +213,10 @@ public class EnemyAttack : MonoBehaviour
             FireballMover mover = fireball.GetComponent<FireballMover>();
             if (mover != null)
             {
-                // ✅ Truyền enemyStats vào
-                mover.Initialize(start, velocity, fireballGravity, timeToTarget, enemyStats, player.transform);
+                mover.Initialize(start, velocity, fireballGravity, timeToTarget, enemyStats, currentTarget);
             }
         }
     }
-
 
     Vector3 CalculateFireballVelocity(Vector3 start, Vector3 end, float arcHeight, out float timeToTarget, Vector3 gravity)
     {
@@ -193,6 +239,7 @@ public class EnemyAttack : MonoBehaviour
 
         return horizontalVelocity + verticalVelocity;
     }
+
     public void EnableWeaponHitbox()
     {
         if (weaponCollider != null)
@@ -205,4 +252,29 @@ public class EnemyAttack : MonoBehaviour
             weaponCollider.enabled = false;
     }
 
+    #region Combat Audio (Enter/Exit battle reporting)
+   
+
+    private void OnEnable() => battleReported = false;
+
+    private void ReportEnterCombat()
+    {
+        if (!battleReported)
+        {
+            battleReported = true;
+            AudioManager.Instance?.EnterBattle();
+        }
+    }
+
+    private void ReportExitCombat()
+    {
+        if (battleReported)
+        {
+            battleReported = false;
+            AudioManager.Instance?.ExitBattle();
+        }
+    }
+
+    private void OnDisable() => ReportExitCombat();
+    #endregion
 }

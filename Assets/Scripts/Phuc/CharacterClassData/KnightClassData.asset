@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 3
   model: {fileID: 6009232738972697712, guid: 333a389f550df134c86470fecd7d619e, type: 3}
-  controller: {fileID: 9100000, guid: 9d187b14afc299842bfedc6a50ae2031, type: 2}
+  className: 0
   avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+  attackSound: {fileID: 8300000, guid: 018b9054ac7a99249922d4b1ae11dfc5, type: 3}

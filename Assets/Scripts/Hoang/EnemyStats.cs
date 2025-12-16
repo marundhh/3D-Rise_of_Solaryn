@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using System.Collections;
+using TMPro;
 
 public class EnemyStats : CreatureStats
 {
@@ -8,27 +10,29 @@ public class EnemyStats : CreatureStats
     public bool isInvincible = false;
     public bool isDead = false;
     public GameObject ten;
+    public int expReward;
     public float damage => maxPhysicalDamage;
-    
     public float MaxHealth => maxHealth;
 
-
     [Range(0, 100)]
-    public float dodgeChance = 25f; // Tỷ lệ né tránh (%, từ 0 đến 100)
-
+    public float dodgeChance = 25f;
 
     public Image healthBar;
-
 
     [Header("Drop Settings")]
     public GameObject itemDropPrefab;
     public int dropCount = 1;
+    [Header("Dodge Text")]
+    public GameObject dodgeTextPrefab;
 
-  
+
+    [Header("Damage Text")]
+    public GameObject floatingTextPrefab;       // Prefab chứa TextMeshPro
+    public Transform textSpawnPoint;            // Vị trí xuất hiện text (có thể là đầu enemy)
 
     private void Awake()
     {
-        base.Awake(); // Gọi Awake của CreatureStats để gán currentHealth
+        base.Awake();
 
         if (healthBar == null)
             healthBar = GetComponentInChildren<Image>();
@@ -37,12 +41,9 @@ public class EnemyStats : CreatureStats
         if (weapon != null)
             weapon.Initialize(this);
 
-
         AssignWeaponDamageScript();
-
-
-
     }
+
     private void AssignWeaponDamageScript()
     {
         Transform[] allChildren = GetComponentsInChildren<Transform>(true);
@@ -58,6 +59,7 @@ public class EnemyStats : CreatureStats
             }
         }
     }
+
     public void HealToFull()
     {
         currentHealth = maxHealth;
@@ -69,16 +71,13 @@ public class EnemyStats : CreatureStats
     {
         if (isInvincible || isDead) return;
 
-        // Tính xác suất né
+        // Né đòn
         float roll = Random.Range(0f, 100f);
         if (roll < dodgeChance)
         {
             Debug.Log($"{gameObject.name} đã né được đòn tấn công!");
-
-            Animator anim = GetComponent<Animator>();
-    
-           
-            return; // Không nhận sát thương nếu né được
+            ShowDodgeText(); // Gọi script riêng
+            return;
         }
 
         currentHealth -= damage;
@@ -92,11 +91,41 @@ public class EnemyStats : CreatureStats
 
         Debug.Log($"{gameObject.name} nhận {damage} sát thương. Máu còn lại: {currentHealth}");
 
+        // Hiển thị Damage Text
+        ShowFloatingText(damage);
+
         if (currentHealth <= 0 && !isDead)
         {
             Die();
             GameEventSystem.Dispatch(new EnemyKilledEvent(GetComponent<EnemyNameManager>().enemyData.displayName));
         }
+
+
+
+    }
+    private void ShowDodgeText()
+    {
+        if (dodgeTextPrefab != null)
+        {
+            Vector3 spawnPos = textSpawnPoint != null ? textSpawnPoint.position : transform.position + Vector3.up * 2f;
+            GameObject dodgeText = Instantiate(dodgeTextPrefab, spawnPos, Quaternion.identity);
+            dodgeText.GetComponent<DodgeText>().Setup();
+        }
+    }
+
+    private void ShowFloatingText(string message)
+    {
+        if (floatingTextPrefab != null)
+        {
+            Vector3 spawnPos = textSpawnPoint != null ? textSpawnPoint.position : transform.position + Vector3.up * 2f;
+            GameObject floatingText = Instantiate(floatingTextPrefab, spawnPos, Quaternion.identity);
+            floatingText.GetComponent<FloatingText>().Setup(message);
+        }
+    }
+
+    private void ShowFloatingText(float damage)
+    {
+        ShowFloatingText(damage.ToString("F0"));
     }
 
 
@@ -130,7 +159,6 @@ public class EnemyStats : CreatureStats
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
 
-        // Tắt các script điều khiển
         EnemyAttack enemyAttack = GetComponent<EnemyAttack>();
         if (enemyAttack != null)
             enemyAttack.enabled = false;
@@ -139,7 +167,6 @@ public class EnemyStats : CreatureStats
         if (ai != null)
             ai.enabled = false;
 
-        // Tắt mọi script trừ EnemyStats
         MonoBehaviour[] allScripts = GetComponents<MonoBehaviour>();
         foreach (var script in allScripts)
         {
@@ -147,12 +174,19 @@ public class EnemyStats : CreatureStats
                 script.enabled = false;
         }
 
-        DropItems();
+        SoulManager.Instance?.StoreSoul(this);
+
+        //fix chổ này cho t nè lổi đó 
+        PlayerLevel.instance.GainExp(expReward);
+
+        Invoke(nameof(DropItems), 7f);
 
         Destroy(gameObject, 7f);
         if (ten != null)
             Destroy(ten);
+   
     }
+
 
     private void DropItems()
     {
@@ -163,5 +197,4 @@ public class EnemyStats : CreatureStats
             Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
         }
     }
-
 }

@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SceneTransitionManager : MonoBehaviour
 {
@@ -17,38 +18,49 @@ public class SceneTransitionManager : MonoBehaviour
         if (Instance != null ) { Destroy(gameObject); return; }
         Instance = this;
     }
-    public async UniTask DoFadeTransition(Func<UniTask> onBlackAction)
+    public async UniTask DoFadeTransition(Func<UniTask> onBlockAction)
     {
         await FadeOut();
-        if (onBlackAction != null)
-            await onBlackAction();
+        if (onBlockAction != null)
+            await onBlockAction();
         await FadeStay();
         await FadeIn();
     }
 
-    private async UniTask FadeOut()
+    public async UniTask FadeOut()
     {
-        fadeCanvas.gameObject.SetActive(true);
+        PlayerMovement.isInputLocked = true;
+        fadeCanvas.gameObject?.SetActive(true);
         await fadeCanvas.DOFade(1f, 1f).AwaitForCompletion();
     }
 
 
-    private async UniTask FadeStay()
+    public async UniTask FadeStay()
     {
-        fadeCanvas.gameObject.SetActive(true); 
-        await fadeCanvas.DOFade(1f, 0.5f).AwaitForCompletion();
+        if (fadeCanvas)
+        {
+            fadeCanvas.gameObject.SetActive(true);
+            await fadeCanvas.DOFade(1f, 0.5f).AwaitForCompletion();
+        }
     }
 
-    private async UniTask FadeIn()
+    public async UniTask FadeIn()
     {
+        PlayerMovement.isInputLocked = false;
         noityText.text = ""; // Xóa thông báo 
         await fadeCanvas.DOFade(0f, 1f).AwaitForCompletion();
         DOTween.Kill(fadeCanvas); // Dọn tween tránh lỗi
-        fadeCanvas.gameObject.SetActive(false);
+        if(fadeCanvas != null)
+            fadeCanvas.gameObject.SetActive(false);
     }
 
     public void SetNotification(string noity)
     {
         noityText.text = noity;
+    }
+
+    public void LoadScene(string sceneName)
+    {
+       SceneManager.LoadScene(sceneName);
     }
 }

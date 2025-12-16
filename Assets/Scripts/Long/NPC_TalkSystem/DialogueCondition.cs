@@ -13,7 +13,6 @@ public class DialogueCondition
         if (requiredQuestID >= 0)
         {
             var quest = MissionManager.Instance.GetMissionByID(requiredQuestID);
-            Debug.Log(quest);
             if (quest == null) return false;
             if (requireQuestCompleted && !quest.IsCompleted) return false;
         }

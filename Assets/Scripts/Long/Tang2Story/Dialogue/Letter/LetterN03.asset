@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: LetterN03
+  m_EditorClassIdentifier: 
+  dialogueID: start
+  lines:
+  - '"Where is the divine eye ranked in the three stone tablets?"'
+  lines2: []
+  choices:
+  - text: Rank 1st
+    nextDialogueId: 
+    storyBlockID: Story2D203
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - (Riser) Hmm I answered correctly
+    - "\u201CWe believed that no one could betray Luminara. But he\u2026 the third
+      leader\u2026 betrayed us to the monsters. I killed him. But it was too late.\u201D"
+    - (Thinking) Someone betrayed the goddess? What happened that year?
+    - (Thinking) I still need more information
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  - text: Rank 2st
+    nextDialogueId: 
+    storyBlockID: 
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - '"I doubt a little about your faith in the goddess luminara."'
+    - (Thinking) As a puzzle, I will try to search around, the only clues are the
+      stone tablet and the divine eye.
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  - text: Rank 3st
+    nextDialogueId: 
+    storyBlockID: 
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - '"I doubt a little about your faith in the goddess luminara."'
+    - (Thinking)  As a puzzle, I will try to search around, the only clues are the
+      stone tablet and the divine eye.
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

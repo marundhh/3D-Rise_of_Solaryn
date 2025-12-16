@@ -20,6 +20,8 @@ MonoBehaviour:
   - text: I buy
     nextDialogueId: 002
     storyBlockID: Story2D201
+    playNextDialogueAutomatically: 0
+    openMenuID: Shop
     choiceLines:
     - Nice, here is your item.
     missionRaw: {fileID: 0}

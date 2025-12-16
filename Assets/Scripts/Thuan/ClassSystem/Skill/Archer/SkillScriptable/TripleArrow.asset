@@ -15,14 +15,16 @@ MonoBehaviour:
   skillName: TripleArrow
   skillDescription: TripleArrow
   cooldown: 1
-  duration: 5
-  skillSoundEff: {fileID: 0}
-  skillEffect: {fileID: 7623806450294913464, guid: cc0378b0de60d9543bd40b93472997a0, type: 3}
-  damageMultiplier: 0.7
-  coneAngle: 45
-  slowAmount: 0.4
-  slowDuration: 2
-  arrowCount: 3
+  duration: 3.5
+  manaCost: 5
+  skillIcon: {fileID: 21300000, guid: ae87e2fa58e3a594bbe7dc8d5e9ff14e, type: 3}
+  skillSoundEff: {fileID: 8300000, guid: e426068e69f2d6342a2b74b3835b77ab, type: 3}
+  skillEffect: {fileID: 0}
+  damageMultiplier: 1.2
+  coneAngle: 40
+  range: 7
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  skillEffect1: {fileID: 7623806450294913464, guid: cc0378b0de60d9543bd40b93472997a0, type: 3}
+  skillEffect2: {fileID: 8364853336288268136, guid: a568089b8f22fb64ca28e4188f89ab27, type: 3}

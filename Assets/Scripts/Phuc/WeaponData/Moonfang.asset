@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6311e89e06ea88642bb5f4165b334665, type: 3}
+  m_Name: Moonfang
+  m_EditorClassIdentifier: 
+  id: 36
+  damage: 10
+  isHand: 1
+  price: 1456
+  weaponName: Moonfang
+  weaponModel: {fileID: 4109751931522999971, guid: 6a47732203937bf47b87adc74a73de2e, type: 3}
+  controller: {fileID: 9100000, guid: 9d187b14afc299842bfedc6a50ae2031, type: 2}
+  icon: {fileID: 21300000, guid: e9f0ce1532385f6419ca6dabf18ea311, type: 3}

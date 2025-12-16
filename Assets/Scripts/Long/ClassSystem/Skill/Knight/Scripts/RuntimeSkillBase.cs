@@ -41,9 +41,14 @@ public abstract class RuntimeSkillBase : IRuntimeSkill
         }
         return false;
     }
+
     public virtual async UniTask StartCooldown()
     {
         isOnCooldown = true;
+
+        float reduction = Mathf.Clamp01(PlayerStats.instance?.currentCooldownReduction ?? 0f);
+        float cd = Mathf.Max(0.01f, Cooldown * (1f - reduction));
+
         // Map UI theo index 
         int index = skillController.runtimeSkills.IndexOf(this);
 
@@ -53,7 +58,7 @@ public abstract class RuntimeSkillBase : IRuntimeSkill
             var txt = skillController.skillTextCooldown[index];
 
             float elapsed = 0f;
-            float cd = Cooldown;
+            //float cd = Cooldown;
 
             while (elapsed < cd)
             {

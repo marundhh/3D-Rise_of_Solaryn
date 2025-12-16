@@ -9,7 +9,7 @@ public class ReachLocationMission : Mission
     private string targetLocation;
     public string LocationName => targetLocation;
 
-    public ReachLocationMission(int id, string title, string description, string location,Transform targetPoint, int rewardGold, int rewardExp)
+    public ReachLocationMission(int id, string title, string description, string location,Transform targetPoint, int rewardGold, int rewardExp, string storyID)
     {
         missionID = id;
         Title = title;
@@ -20,17 +20,16 @@ public class ReachLocationMission : Mission
         this.rewardGold = rewardGold;
         this.rewardExp = rewardExp;
         playerPoint = GameObject.FindWithTag("Player").transform;
+        this.storyID = storyID;
     }
 
     public override void OnEvent(GameEvent e)
     {
         if (e is ReachedLocationEvent le && le.locationName == targetLocation)
         {
-            IsCompleted = true;
-
+            OnMissionComplete();
         }
     }
-
     public override string GetProgressText()
     {
         return IsCompleted ? $"Arrived at location {targetLocation}" : $"Need arrive at location <color=red>{targetLocation}</color>. ({(int)GetCurrentDistance()} m)";

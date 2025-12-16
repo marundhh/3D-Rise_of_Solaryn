@@ -26,6 +26,7 @@ public class SpawnBossTrigger : MonoBehaviour
         if (bossPrefab != null && spawnPoint != null)
         {
             Instantiate(bossPrefab, spawnPoint.position, spawnPoint.rotation);
+            AudioManager.Instance.EnterBattle(); // Gọi hàm EnterBattle từ AudioManager
         }
         else
         {

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a64fd34c9c5654f9318a1306f35508, type: 3}
+  m_Name: LetterN02
+  m_EditorClassIdentifier: 
+  dialogueID: start
+  lines:
+  - (Thinking) A statue, hand still holding a scroll, on which was written
+  - "\u201CWe have sealed him. But this seal is not permanent. We need \u20186 magic
+    stones\u2019 to keep him in eternal sleep.\u201D"
+  - '"I will show you the way, open the door of the room"'
+  lines2: []
+  choices:
+  - text: ' What was that letter about?'
+    nextDialogueId: 
+    storyBlockID: Story2D201
+    playNextDialogueAutomatically: 0
+    choiceLines:
+    - (Riser) Sealed?
+    - (Riser) Sprite Magic Stone?
+    - (Riser) I need to find more information from these letters.
+    - (Riser) Open the door ??
+    missionRaw: {fileID: 0}
+    relationShipEff: 0
+    setFlag: 
+  choices2: []
+  condition:
+    requiredQuestID: -1
+    requireQuestCompleted: 0
+    requiredRelationship: -2147483648
+    requiredWorldFlag: 

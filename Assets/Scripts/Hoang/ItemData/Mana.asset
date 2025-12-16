@@ -17,4 +17,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e8cb2267188d7084789cc04c59b01a45, type: 3}
   value: 20
   description: Restore 20 energy.
+  isStackable: 1
+  price: 5
   itemType: 1

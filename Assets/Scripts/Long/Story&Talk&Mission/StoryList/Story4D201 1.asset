@@ -14,36 +14,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockID: Story4D2011
   actions:
-  - action: 8
+  - action: 9
     prefabs: {fileID: 0}
     count: 0
     targetID: Wall03
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 1
     Notification: A barrier has been destroyed
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 1
     prefabs: {fileID: 0}
     count: 0
     targetID: Wall03
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 0}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 0
     Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}
   - action: 3
     prefabs: {fileID: 0}
     count: 0
     targetID: Wall03
     position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
     missionRaw: {fileID: 11400000, guid: 1b44d6f81c4cbe94894edc0a0541256f, type: 2}
     relationShipEff: 0
     dialogID: 
     storyID: 
     waitTime: 0
     Notification: 
+    cameraTargetPosition: {x: 0, y: 0, z: 0}
+    cameraLookOffset: {x: 0, y: 0, z: 0}
+    cameraMoveDuration: 2
+    cameraLookDuration: 1
+    cutSceneAsset: {fileID: 0}

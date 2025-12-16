@@ -19,7 +19,7 @@ public class StoryActionBlockDrawer : PropertyDrawer
                 lines += 1; // missionRaw
                 break;
             case StoryAction.MoveObject:
-                lines += 2; // position
+                lines += 3; // position
                 break;
             case StoryAction.EnableObject:
                 lines += 1; // targetID
@@ -42,7 +42,21 @@ public class StoryActionBlockDrawer : PropertyDrawer
             case StoryAction.Wait:
                 lines += 2; // waitTime
                 break;
-
+            case StoryAction.CameraSetup:
+                lines += 4; // cameraTargetPosition, cameraLookOffset, cameraMoveDuration, cameraLookDuration
+                break;
+            case StoryAction.MoveObjectGobal:
+                lines += 3; // targetID, position
+                break;
+            case StoryAction.playCutscene:
+                lines += 1; // Cutscene
+                break;
+            case StoryAction.loadScene:
+                lines += 1; // sceneName
+                break;
+            case StoryAction.minusCoins:
+                lines += 1; // minusCoins
+                break;
         }
 
         return EditorGUIUtility.singleLineHeight * lines;
@@ -61,6 +75,11 @@ public class StoryActionBlockDrawer : PropertyDrawer
         void Draw(string propName)
         {
             var prop = property.FindPropertyRelative(propName);
+            if (prop == null)
+            {
+                Debug.LogError($"Property '{propName}' not found in {property.displayName}");
+                return;
+            }
             EditorGUI.PropertyField(line, prop);
             line.y += EditorGUIUtility.singleLineHeight;
         }
@@ -78,6 +97,7 @@ public class StoryActionBlockDrawer : PropertyDrawer
             case StoryAction.MoveObject:
                 Draw("targetID");
                 Draw("position");
+                Draw("rotation");
                 break;
             case StoryAction.EnableObject:
                 Draw("targetID");
@@ -103,7 +123,26 @@ public class StoryActionBlockDrawer : PropertyDrawer
                 Draw("waitTime");
                 Draw("Notification");
                 break;
-
+            case StoryAction.CameraSetup:
+                Draw("cameraTargetPosition");
+                Draw("cameraLookOffset");
+                Draw("cameraMoveDuration");
+                Draw("cameraLookDuration");
+                break;
+            case StoryAction.MoveObjectGobal:
+                Draw("targetID");
+                Draw("position");
+                Draw("rotation");
+                break;
+            case StoryAction.playCutscene:
+                Draw("cutSceneAsset");
+                break;
+            case StoryAction.loadScene:
+                Draw("sceneName");
+                break;
+            case StoryAction.minusCoins:
+                Draw("minusCoins");
+                break;
         }
     }
 }

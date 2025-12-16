@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
+  itemAmount: 1
   weaponData: {fileID: 11400000, guid: 07665ae1f5dd0ee44812fdf8aa13739e, type: 2}
-  pickupCanvas: {fileID: 0}
+  pickupKey: 120
 --- !u!65 &7895475083732699987
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,5 +120,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7, y: 0.7, z: 0.7}
-  m_Center: {x: -0.000000059604645, y: 0.16767693, z: 0}
+  m_Size: {x: 1.185592, y: 0.94760454, z: 1.5780678}
+  m_Center: {x: 0.07260722, y: 0.29147917, z: -0.06646836}

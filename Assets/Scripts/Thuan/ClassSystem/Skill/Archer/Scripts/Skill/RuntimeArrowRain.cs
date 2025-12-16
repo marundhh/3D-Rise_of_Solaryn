@@ -25,6 +25,7 @@ public class RuntimeArrowRain : RuntimeSkillBase
         audioSource = user.GetComponentInChildren<AudioSource>();
         skillEffect1 = skillData.skillEffect1;
         skillEffect2 = skillData.skillEffect2;
+        skillController.skillIcon[2].sprite = skillData.SkillIcon;
     }
 
     public void PlaySoundEff()
@@ -42,6 +43,7 @@ public class RuntimeArrowRain : RuntimeSkillBase
 
     public override async UniTask Activate()
     {
+        if (!ManaCostProces()) return;
 
         Vector3? target = RotateToMouse(skillData.radius);
         if (!target.HasValue) return;
@@ -78,18 +80,39 @@ public class RuntimeArrowRain : RuntimeSkillBase
     }
 
 
+
     private async UniTask DoArrowRain(float duration, CancellationToken token)
     {
         float elapsed = 0f;
-        float tickRate = skillData.spawnRate;
+        float tickRate = 0.5f;
 
-        while (elapsed < skillData.Duration)
+        Vector3 center = RotateToMouse(skillData.radius) ?? user.transform.position;
+
+        while (elapsed < duration)
         {
+
             token.ThrowIfCancellationRequested();
-            elapsed += skillData.spawnRate;
+            elapsed += tickRate;
+
+            Collider[] hitColliders = Physics.OverlapSphere(center, skillData.radius, skillData.enemyLayer);
+
+            foreach (var hit in hitColliders)
+            {
+                Debug.Log("Hit: " + hit.gameObject.name);
+                if (hit.gameObject == user) continue;
+
+                var enemy = hit.GetComponent<EnemyStats>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(PlayerStats.instance.currentPhysicalDamage);
+                }
+            }
+
             await UniTask.Delay(TimeSpan.FromSeconds(tickRate), cancellationToken: token);
         }
     }
+
+  
 
     #region Rotate To Mouse
     private Vector3? RotateToMouse(float radius)

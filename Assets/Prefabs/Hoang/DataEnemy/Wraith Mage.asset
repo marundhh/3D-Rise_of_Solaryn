@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ded4cca73ec1b841994d542b6be7d8e, type: 3}
   m_Name: Wraith Mage
   m_EditorClassIdentifier: 
-  enemyID: 
-  displayName: 
+  enemyID: 25
+  displayName: Wraith Mage

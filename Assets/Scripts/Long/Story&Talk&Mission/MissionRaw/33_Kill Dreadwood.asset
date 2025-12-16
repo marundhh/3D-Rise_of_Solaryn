@@ -17,7 +17,7 @@ MonoBehaviour:
   tile: Kill Dreadwood
   description: 
   type: Dreadwood
-  count: 1
+  count: 5
   loacation: EnemyTree
   rewardGold: 0
   rewardExp: 300
